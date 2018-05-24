@@ -11,6 +11,10 @@ npm install -g sequelize-auto
 
 ## Usage
 
+```
+npm run generate
+```
+
 From the [Sequelize documentation](http://docs.sequelizejs.com/manual/tutorial/models-definition.html#import)
 
 ```

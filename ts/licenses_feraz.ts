@@ -1,0 +1,48 @@
+/* jshint indent: 2 */
+// tslint:disable
+import * as sequelize from 'sequelize';
+import {DataTypes} from 'sequelize';
+import {licenses_ferazInstance, licenses_ferazAttribute} from './db';
+
+module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) {
+  return sequelize.define<licenses_ferazInstance, licenses_ferazAttribute>('licenses_feraz', {
+    id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    company_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'companies',
+        key: 'id'
+      }
+    },
+    company: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    user: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING(60),
+      allowNull: false
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: '0000-00-00 00:00:00'
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: '0000-00-00 00:00:00'
+    }
+  }, {
+    tableName: 'licenses_feraz'
+  });
+};

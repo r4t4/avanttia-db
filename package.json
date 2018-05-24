@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Avanttia DB",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "generate": "./generate.sh"
+  },
   "repository": {
     "type": "git",
     "url": "avanttia.bitbucket:avanttia/db.git"
