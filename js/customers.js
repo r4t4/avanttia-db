@@ -125,10 +125,10 @@ module.exports = function(sequelize, DataTypes) {
     credit_report_customer_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-      references: {
-        model: 'credit_report_customers',
-        key: 'id'
-      }
+//      references: {
+//        model: 'credit_report_customers',
+//        key: 'id'
+//      }
     },
     email1: {
       type: DataTypes.STRING(255),
