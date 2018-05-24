@@ -51,6 +51,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'contracts'
+    tableName: 'contracts',
+    timestamps: false,
+    version: false
   });
 };

@@ -233,6 +233,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0'
     }
   }, {
-    tableName: 'payments'
+    tableName: 'payments',
+    timestamps: false,
+    version: false
   });
 };

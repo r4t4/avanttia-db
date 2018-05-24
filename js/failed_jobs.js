@@ -26,6 +26,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     }
   }, {
-    tableName: 'failed_jobs'
+    tableName: 'failed_jobs',
+    timestamps: false,
+    version: false
   });
 };

@@ -72,6 +72,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'logbook'
+    tableName: 'logbook',
+    timestamps: false,
+    version: false
   });
 };

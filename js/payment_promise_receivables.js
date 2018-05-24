@@ -35,6 +35,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'payment_promise_receivables'
+    tableName: 'payment_promise_receivables',
+    timestamps: false,
+    version: false
   });
 };

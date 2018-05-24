@@ -25,6 +25,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'oauth_personal_access_clients'
+    tableName: 'oauth_personal_access_clients',
+    timestamps: false,
+    version: false
   });
 };

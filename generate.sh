@@ -9,9 +9,9 @@ mkdir -p $javascript $typescript
 # forcing the .env... sorry... there are many ways to skin a cat
 source .env
 # generate JavaScript
-sequelize-auto -h $AVANTTIA_DB_HOST -d $AVANTTIA_DB_NAME -u $AVANTTIA_DB_USER -x $AVANTTIA_DB_PASS -p $AVANTTIA_DB_PORT  --dialect mysql -o ./js
+sequelize-auto -h $AVANTTIA_DB_HOST -d $AVANTTIA_DB_NAME -u $AVANTTIA_DB_USER -x $AVANTTIA_DB_PASS -p $AVANTTIA_DB_PORT  --dialect mysql -o ./js -a additional.json
 # generate TypeScript
-sequelize-auto -h $AVANTTIA_DB_HOST -d $AVANTTIA_DB_NAME -u $AVANTTIA_DB_USER -x $AVANTTIA_DB_PASS -p $AVANTTIA_DB_PORT  --dialect mysql -o ./ts -z
+sequelize-auto -h $AVANTTIA_DB_HOST -d $AVANTTIA_DB_NAME -u $AVANTTIA_DB_USER -x $AVANTTIA_DB_PASS -p $AVANTTIA_DB_PORT  --dialect mysql -o ./ts -a additional.json -z
 
 # construct a JavaScript index with all the tables
 index="$javascript/index.js"

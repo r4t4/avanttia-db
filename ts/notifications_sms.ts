@@ -83,6 +83,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'notifications_sms'
+    tableName: 'notifications_sms',
+    timestamps: false,
+    version: false
   });
 };

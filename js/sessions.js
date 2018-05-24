@@ -15,6 +15,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'sessions'
+    tableName: 'sessions',
+    timestamps: false,
+    version: false
   });
 };

@@ -55,6 +55,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'user_sync_log_payments'
+    tableName: 'user_sync_log_payments',
+    timestamps: false,
+    version: false
   });
 };

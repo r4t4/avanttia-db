@@ -12,6 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'promises_payment'
+    tableName: 'promises_payment',
+    timestamps: false,
+    version: false
   });
 };

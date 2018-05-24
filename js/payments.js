@@ -229,6 +229,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'payments'
+    tableName: 'payments',
+    timestamps: false,
+    version: false
   });
 };

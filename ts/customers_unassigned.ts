@@ -16,6 +16,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0'
     }
   }, {
-    tableName: 'customers_unassigned'
+    tableName: 'customers_unassigned',
+    timestamps: false,
+    version: false
   });
 };

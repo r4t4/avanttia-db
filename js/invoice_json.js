@@ -31,6 +31,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'invoice_json'
+    tableName: 'invoice_json',
+    timestamps: false,
+    version: false
   });
 };

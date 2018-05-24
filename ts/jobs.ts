@@ -41,6 +41,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'jobs'
+    tableName: 'jobs',
+    timestamps: false,
+    version: false
   });
 };

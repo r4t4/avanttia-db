@@ -51,6 +51,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'history_invoices'
+    tableName: 'history_invoices',
+    timestamps: false,
+    version: false
   });
 };

@@ -151,6 +151,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'customers'
+    tableName: 'customers',
+    timestamps: false,
+    version: false
   });
 };

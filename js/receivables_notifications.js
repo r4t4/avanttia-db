@@ -11,6 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'receivables_notifications'
+    tableName: 'receivables_notifications',
+    timestamps: false,
+    version: false
   });
 };

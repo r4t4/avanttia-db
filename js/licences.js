@@ -100,6 +100,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'licences'
+    tableName: 'licences',
+    timestamps: false,
+    version: false
   });
 };

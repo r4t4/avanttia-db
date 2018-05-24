@@ -63,6 +63,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0.00000000'
     }
   }, {
-    tableName: 'company_intercom_data'
+    tableName: 'company_intercom_data',
+    timestamps: false,
+    version: false
   });
 };

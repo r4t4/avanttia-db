@@ -115,6 +115,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'credit_report_endorses'
+    tableName: 'credit_report_endorses',
+    timestamps: false,
+    version: false
   });
 };

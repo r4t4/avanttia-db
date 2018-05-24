@@ -151,6 +151,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'credit_report_accounts'
+    tableName: 'credit_report_accounts',
+    timestamps: false,
+    version: false
   });
 };

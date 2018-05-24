@@ -103,6 +103,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'credit_report_employments'
+    tableName: 'credit_report_employments',
+    timestamps: false,
+    version: false
   });
 };

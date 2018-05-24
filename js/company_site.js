@@ -47,6 +47,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'company_site'
+    tableName: 'company_site',
+    timestamps: false,
+    version: false
   });
 };

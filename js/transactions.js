@@ -83,6 +83,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'transactions'
+    tableName: 'transactions',
+    timestamps: false,
+    version: false
   });
 };

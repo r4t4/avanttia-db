@@ -79,6 +79,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'credit_report_customers'
+    tableName: 'credit_report_customers',
+    timestamps: false,
+    version: false
   });
 };

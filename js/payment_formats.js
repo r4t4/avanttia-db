@@ -71,6 +71,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'payment_formats'
+    tableName: 'payment_formats',
+    timestamps: false,
+    version: false
   });
 };

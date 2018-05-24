@@ -95,6 +95,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'credit_notes'
+    tableName: 'credit_notes',
+    timestamps: false,
+    version: false
   });
 };

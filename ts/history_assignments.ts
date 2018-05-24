@@ -43,6 +43,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'history_assignments'
+    tableName: 'history_assignments',
+    timestamps: false,
+    version: false
   });
 };

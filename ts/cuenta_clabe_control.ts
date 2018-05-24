@@ -39,6 +39,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'cuenta_clabe_control'
+    tableName: 'cuenta_clabe_control',
+    timestamps: false,
+    version: false
   });
 };

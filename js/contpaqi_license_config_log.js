@@ -47,6 +47,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'contpaqi_license_config_log'
+    tableName: 'contpaqi_license_config_log',
+    timestamps: false,
+    version: false
   });
 };

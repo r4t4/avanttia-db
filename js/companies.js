@@ -208,6 +208,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '100'
     }
   }, {
-    tableName: 'companies'
+    tableName: 'companies',
+    timestamps: false,
+    version: false
   });
 };

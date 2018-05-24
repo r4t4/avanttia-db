@@ -103,6 +103,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'licence_renewals'
+    tableName: 'licence_renewals',
+    timestamps: false,
+    version: false
   });
 };

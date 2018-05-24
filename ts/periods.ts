@@ -103,6 +103,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'periods'
+    tableName: 'periods',
+    timestamps: false,
+    version: false
   });
 };

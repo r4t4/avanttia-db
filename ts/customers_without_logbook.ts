@@ -16,6 +16,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0'
     }
   }, {
-    tableName: 'customers_without_logbook'
+    tableName: 'customers_without_logbook',
+    timestamps: false,
+    version: false
   });
 };

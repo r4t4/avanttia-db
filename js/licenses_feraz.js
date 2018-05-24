@@ -39,6 +39,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'licenses_feraz'
+    tableName: 'licenses_feraz',
+    timestamps: false,
+    version: false
   });
 };

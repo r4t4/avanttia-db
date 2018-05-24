@@ -12,6 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0.0000'
     }
   }, {
-    tableName: 'pay_days'
+    tableName: 'pay_days',
+    timestamps: false,
+    version: false
   });
 };

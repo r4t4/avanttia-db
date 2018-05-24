@@ -43,6 +43,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'historial_deuda_comentarios'
+    tableName: 'historial_deuda_comentarios',
+    timestamps: false,
+    version: false
   });
 };

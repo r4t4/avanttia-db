@@ -52,6 +52,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'user_notifications'
+    tableName: 'user_notifications',
+    timestamps: false,
+    version: false
   });
 };

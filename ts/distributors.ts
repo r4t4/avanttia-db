@@ -71,6 +71,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       }
     }
   }, {
-    tableName: 'distributors'
+    tableName: 'distributors',
+    timestamps: false,
+    version: false
   });
 };

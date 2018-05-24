@@ -39,6 +39,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'contact_phone'
+    tableName: 'contact_phone',
+    timestamps: false,
+    version: false
   });
 };

@@ -63,6 +63,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'discounts'
+    tableName: 'discounts',
+    timestamps: false,
+    version: false
   });
 };

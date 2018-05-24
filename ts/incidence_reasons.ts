@@ -27,6 +27,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'incidence_reasons'
+    tableName: 'incidence_reasons',
+    timestamps: false,
+    version: false
   });
 };

@@ -48,6 +48,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'user_notifications'
+    tableName: 'user_notifications',
+    timestamps: false,
+    version: false
   });
 };

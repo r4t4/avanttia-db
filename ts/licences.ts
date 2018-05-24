@@ -104,6 +104,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'licences'
+    tableName: 'licences',
+    timestamps: false,
+    version: false
   });
 };

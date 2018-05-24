@@ -59,6 +59,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'extensions'
+    tableName: 'extensions',
+    timestamps: false,
+    version: false
   });
 };

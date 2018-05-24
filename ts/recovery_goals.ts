@@ -63,6 +63,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'recovery_goals'
+    tableName: 'recovery_goals',
+    timestamps: false,
+    version: false
   });
 };

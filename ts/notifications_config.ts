@@ -102,6 +102,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       }
     }
   }, {
-    tableName: 'notifications_config'
+    tableName: 'notifications_config',
+    timestamps: false,
+    version: false
   });
 };

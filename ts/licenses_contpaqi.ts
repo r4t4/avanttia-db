@@ -63,6 +63,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'licenses_contpaqi'
+    tableName: 'licenses_contpaqi',
+    timestamps: false,
+    version: false
   });
 };

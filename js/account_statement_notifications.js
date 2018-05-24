@@ -12,6 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'account_statement_notifications'
+    tableName: 'account_statement_notifications',
+    timestamps: false,
+    version: false
   });
 };

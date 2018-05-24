@@ -20,6 +20,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'oauth_refresh_tokens'
+    tableName: 'oauth_refresh_tokens',
+    timestamps: false,
+    version: false
   });
 };

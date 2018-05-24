@@ -55,6 +55,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'webservices_log'
+    tableName: 'webservices_log',
+    timestamps: false,
+    version: false
   });
 };

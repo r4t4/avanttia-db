@@ -60,6 +60,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'contacts'
+    tableName: 'contacts',
+    timestamps: false,
+    version: false
   });
 };

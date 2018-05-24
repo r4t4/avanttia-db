@@ -56,6 +56,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'notifications_templates'
+    tableName: 'notifications_templates',
+    timestamps: false,
+    version: false
   });
 };

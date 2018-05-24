@@ -60,6 +60,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0'
     }
   }, {
-    tableName: 'notifications_templates'
+    tableName: 'notifications_templates',
+    timestamps: false,
+    version: false
   });
 };

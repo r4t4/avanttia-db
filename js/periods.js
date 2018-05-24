@@ -99,6 +99,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'periods'
+    tableName: 'periods',
+    timestamps: false,
+    version: false
   });
 };

@@ -55,6 +55,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'license_payments'
+    tableName: 'license_payments',
+    timestamps: false,
+    version: false
   });
 };

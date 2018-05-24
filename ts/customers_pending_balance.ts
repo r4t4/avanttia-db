@@ -29,6 +29,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'customers_pending_balance'
+    tableName: 'customers_pending_balance',
+    timestamps: false,
+    version: false
   });
 };

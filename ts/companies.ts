@@ -212,6 +212,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '100'
     }
   }, {
-    tableName: 'companies'
+    tableName: 'companies',
+    timestamps: false,
+    version: false
   });
 };

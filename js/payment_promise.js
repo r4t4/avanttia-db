@@ -63,6 +63,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'payment_promise'
+    tableName: 'payment_promise',
+    timestamps: false,
+    version: false
   });
 };

@@ -45,6 +45,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'oauth_clients'
+    tableName: 'oauth_clients',
+    timestamps: false,
+    version: false
   });
 };

@@ -35,6 +35,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'notifications_customers'
+    tableName: 'notifications_customers',
+    timestamps: false,
+    version: false
   });
 };

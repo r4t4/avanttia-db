@@ -68,6 +68,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'logbook'
+    tableName: 'logbook',
+    timestamps: false,
+    version: false
   });
 };

@@ -2,19 +2,6 @@
 import * as Sequelize from 'sequelize';
 
 
-// table: banks
-export interface banksAttribute {
-  id:number;
-  key:string;
-  name:string;
-  rfc?:string;
-  extension:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface banksInstance extends Sequelize.Instance<banksAttribute>, banksAttribute { }
-export interface banksModel extends Sequelize.Model<banksInstance, banksAttribute> { }
-
 // table: account_statement_notifications
 export interface account_statement_notificationsAttribute {
   company_id:number;
@@ -22,30 +9,6 @@ export interface account_statement_notificationsAttribute {
 }
 export interface account_statement_notificationsInstance extends Sequelize.Instance<account_statement_notificationsAttribute>, account_statement_notificationsAttribute { }
 export interface account_statement_notificationsModel extends Sequelize.Model<account_statement_notificationsInstance, account_statement_notificationsAttribute> { }
-
-// table: accounts
-export interface accountsAttribute {
-  id:number;
-  company_site_id?:number;
-  company_id:number;
-  customer_id?:number;
-  bank_id?:number;
-  paybook_account_id:string;
-  account_id_contpaqi:number;
-  name:string;
-  number?:string;
-  clabe:string;
-  balance:number;
-  foreign_bank_name:string;
-  foreign_bank_rfc:string;
-  dt_refresh:Date;
-  disable:number;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
-}
-export interface accountsInstance extends Sequelize.Instance<accountsAttribute>, accountsAttribute { }
-export interface accountsModel extends Sequelize.Model<accountsInstance, accountsAttribute> { }
 
 // table: collection_policies
 export interface collection_policiesAttribute {
@@ -75,6 +38,43 @@ export interface comercial_activitiesAttribute {
 }
 export interface comercial_activitiesInstance extends Sequelize.Instance<comercial_activitiesAttribute>, comercial_activitiesAttribute { }
 export interface comercial_activitiesModel extends Sequelize.Model<comercial_activitiesInstance, comercial_activitiesAttribute> { }
+
+// table: banks
+export interface banksAttribute {
+  id:number;
+  key:string;
+  name:string;
+  rfc?:string;
+  extension:string;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface banksInstance extends Sequelize.Instance<banksAttribute>, banksAttribute { }
+export interface banksModel extends Sequelize.Model<banksInstance, banksAttribute> { }
+
+// table: accounts
+export interface accountsAttribute {
+  id:number;
+  company_site_id?:number;
+  company_id:number;
+  customer_id?:number;
+  bank_id?:number;
+  paybook_account_id:string;
+  account_id_contpaqi:number;
+  name:string;
+  number?:string;
+  clabe:string;
+  balance:number;
+  foreign_bank_name:string;
+  foreign_bank_rfc:string;
+  dt_refresh:Date;
+  disable:number;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
+}
+export interface accountsInstance extends Sequelize.Instance<accountsAttribute>, accountsAttribute { }
+export interface accountsModel extends Sequelize.Model<accountsInstance, accountsAttribute> { }
 
 // table: companies
 export interface companiesAttribute {
@@ -190,6 +190,18 @@ export interface contact_emailAttribute {
 export interface contact_emailInstance extends Sequelize.Instance<contact_emailAttribute>, contact_emailAttribute { }
 export interface contact_emailModel extends Sequelize.Model<contact_emailInstance, contact_emailAttribute> { }
 
+// table: contact_phone
+export interface contact_phoneAttribute {
+  id:number;
+  contact_id:number;
+  phone:string;
+  extension:string;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface contact_phoneInstance extends Sequelize.Instance<contact_phoneAttribute>, contact_phoneAttribute { }
+export interface contact_phoneModel extends Sequelize.Model<contact_phoneInstance, contact_phoneAttribute> { }
+
 // table: contacts
 export interface contactsAttribute {
   id:number;
@@ -206,18 +218,6 @@ export interface contactsAttribute {
 }
 export interface contactsInstance extends Sequelize.Instance<contactsAttribute>, contactsAttribute { }
 export interface contactsModel extends Sequelize.Model<contactsInstance, contactsAttribute> { }
-
-// table: contact_phone
-export interface contact_phoneAttribute {
-  id:number;
-  contact_id:number;
-  phone:string;
-  extension:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface contact_phoneInstance extends Sequelize.Instance<contact_phoneAttribute>, contact_phoneAttribute { }
-export interface contact_phoneModel extends Sequelize.Model<contact_phoneInstance, contact_phoneAttribute> { }
 
 // table: contpaqi_license_config_log
 export interface contpaqi_license_config_logAttribute {

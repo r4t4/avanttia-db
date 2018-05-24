@@ -12,6 +12,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0.0000'
     }
   }, {
-    tableName: 'credit_days'
+    tableName: 'credit_days',
+    timestamps: false,
+    version: false
   });
 };

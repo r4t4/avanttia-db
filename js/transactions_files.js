@@ -57,6 +57,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '1'
     }
   }, {
-    tableName: 'transactions_files'
+    tableName: 'transactions_files',
+    timestamps: false,
+    version: false
   });
 };

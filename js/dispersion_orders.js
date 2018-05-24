@@ -67,6 +67,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'dispersion_orders'
+    tableName: 'dispersion_orders',
+    timestamps: false,
+    version: false
   });
 };

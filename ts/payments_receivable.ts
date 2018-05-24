@@ -87,6 +87,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'payments_receivable'
+    tableName: 'payments_receivable',
+    timestamps: false,
+    version: false
   });
 };

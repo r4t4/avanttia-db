@@ -79,6 +79,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'notifications_sms'
+    tableName: 'notifications_sms',
+    timestamps: false,
+    version: false
   });
 };

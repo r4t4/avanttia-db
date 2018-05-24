@@ -25,6 +25,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       }
     }
   }, {
-    tableName: 'role_user'
+    tableName: 'role_user',
+    timestamps: false,
+    version: false
   });
 };

@@ -40,6 +40,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'oauth_access_tokens'
+    tableName: 'oauth_access_tokens',
+    timestamps: false,
+    version: false
   });
 };

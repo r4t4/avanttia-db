@@ -32,6 +32,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'oauth_auth_codes'
+    tableName: 'oauth_auth_codes',
+    timestamps: false,
+    version: false
   });
 };

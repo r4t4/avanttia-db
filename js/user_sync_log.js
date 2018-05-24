@@ -31,6 +31,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'user_sync_log'
+    tableName: 'user_sync_log',
+    timestamps: false,
+    version: false
   });
 };

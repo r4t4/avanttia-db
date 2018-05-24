@@ -127,6 +127,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     }
   }, {
-    tableName: 'credit_report_shareholders'
+    tableName: 'credit_report_shareholders',
+    timestamps: false,
+    version: false
   });
 };

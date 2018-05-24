@@ -39,6 +39,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'payment_periods'
+    tableName: 'payment_periods',
+    timestamps: false,
+    version: false
   });
 };

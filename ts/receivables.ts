@@ -155,6 +155,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     }
   }, {
-    tableName: 'receivables'
+    tableName: 'receivables',
+    timestamps: false,
+    version: false
   });
 };

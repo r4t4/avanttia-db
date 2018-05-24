@@ -47,6 +47,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'contracts'
+    tableName: 'contracts',
+    timestamps: false,
+    version: false
   });
 };

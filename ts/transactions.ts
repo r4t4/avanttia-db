@@ -87,6 +87,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       }
     }
   }, {
-    tableName: 'transactions'
+    tableName: 'transactions',
+    timestamps: false,
+    version: false
   });
 };

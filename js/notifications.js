@@ -102,6 +102,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'notifications'
+    tableName: 'notifications',
+    timestamps: false,
+    version: false
   });
 };

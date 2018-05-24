@@ -32,6 +32,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0000-00-00 00:00:00'
     }
   }, {
-    tableName: 'permissions'
+    tableName: 'permissions',
+    timestamps: false,
+    version: false
   });
 };

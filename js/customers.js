@@ -147,6 +147,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'customers'
+    tableName: 'customers',
+    timestamps: false,
+    version: false
   });
 };

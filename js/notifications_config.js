@@ -98,6 +98,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'notifications_config'
+    tableName: 'notifications_config',
+    timestamps: false,
+    version: false
   });
 };

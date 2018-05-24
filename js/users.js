@@ -89,6 +89,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'users'
+    tableName: 'users',
+    timestamps: false,
+    version: false
   });
 };
