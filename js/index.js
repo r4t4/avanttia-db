@@ -49,7 +49,6 @@ module.exports = (sequelize) => {
     import_data_service_logs: sequelize.import('import_data_service_logs', require('./import_data_service_logs')),
     incidence_reasons: sequelize.import('incidence_reasons', require('./incidence_reasons')),
     incidences: sequelize.import('incidences', require('./incidences')),
-    index: sequelize.import('index', require('./index')),
     invoice_json: sequelize.import('invoice_json', require('./invoice_json')),
     jobs: sequelize.import('jobs', require('./jobs')),
     licence_renewals: sequelize.import('licence_renewals', require('./licence_renewals')),

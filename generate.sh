@@ -15,15 +15,15 @@ sequelize-auto -h $AVANTTIA_DB_HOST -d $AVANTTIA_DB_NAME -u $AVANTTIA_DB_USER -x
 
 # construct a JavaScript index with all the tables
 index="$javascript/index.js"
-# clean it up
-truncate -s 0 $index
 
 # create the JS file
 echo "module.exports = (sequelize) => {" >> $index
 echo "  return {" >> $index
 for js in $javascript/*.js; do
   model=$( echo $js | cut -d '/' -f 3 | cut -d '.' -f 1 )
-  echo "    $model: sequelize.import('$model', require('./$model'))," >> $index
+  if [ "$model" != 'index' ]; then
+    echo "    $model: sequelize.import('$model', require('./$model'))," >> $index
+  fi
   #echo "  $model: require('./$model')," >> $index
 done
 echo "  };" >> $index

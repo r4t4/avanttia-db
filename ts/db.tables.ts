@@ -4,14 +4,14 @@ import * as sequelize from 'sequelize';
 import * as def from './db';
 
 export interface ITables {
-  account_statement_notifications:def.account_statement_notificationsModel;
-  collection_policies:def.collection_policiesModel;
-  comercial_activities:def.comercial_activitiesModel;
   banks:def.banksModel;
+  collection_policies:def.collection_policiesModel;
+  account_statement_notifications:def.account_statement_notificationsModel;
   accounts:def.accountsModel;
+  comercial_activities:def.comercial_activitiesModel;
   companies:def.companiesModel;
-  company_payments:def.company_paymentsModel;
   company_intercom_data:def.company_intercom_dataModel;
+  company_payments:def.company_paymentsModel;
   company_site:def.company_siteModel;
   company_user:def.company_userModel;
   contact_email:def.contact_emailModel;
@@ -111,14 +111,14 @@ export interface ITables {
 
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
-    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
-    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
-    comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     banks: seq.import(path.join(__dirname, './banks')),
+    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
+    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
     accounts: seq.import(path.join(__dirname, './accounts')),
+    comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     companies: seq.import(path.join(__dirname, './companies')),
-    company_payments: seq.import(path.join(__dirname, './company_payments')),
     company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
+    company_payments: seq.import(path.join(__dirname, './company_payments')),
     company_site: seq.import(path.join(__dirname, './company_site')),
     company_user: seq.import(path.join(__dirname, './company_user')),
     contact_email: seq.import(path.join(__dirname, './contact_email')),
