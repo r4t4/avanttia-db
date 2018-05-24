@@ -1,0 +1,19 @@
+{
+  "name": "avanttia-db",
+  "version": "1.0.0",
+  "description": "Avanttia DB",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "avanttia.bitbucket:avanttia/db.git"
+  },
+  "keywords": [
+    "sequelize"
+  ],
+  "author": "Claudio Maubert <claudio@avanttia.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "sequelize": "^4.37.8"
+  }
+}
