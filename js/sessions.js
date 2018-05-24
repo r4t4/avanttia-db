@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('sessions', {
     id: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      primaryKey: true,
+      allowNull: false      
     },
     payload: {
       type: DataTypes.TEXT,
