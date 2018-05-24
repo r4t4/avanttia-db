@@ -40,10 +40,10 @@ module.exports = function(sequelize, DataTypes) {
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-      references: {
-        model: 'companies',
-        key: 'id'
-      }
+//      references: {
+//        model: 'companies',
+//        key: 'id'
+//      }
     },
     type: {
       type: DataTypes.INTEGER(11),
