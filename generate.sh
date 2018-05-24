@@ -16,11 +16,12 @@ index="$javascript/index.js"
 truncate -s 0 $index
 
 # create the JS file
-echo "module.exports = {" >> $index
+echo "module.exports = (sequelize) => {" >> $index
 for js in $javascript/*.js; do
   model=$( echo $js | cut -d '/' -f 3 | cut -d '.' -f 1 )
-  echo "  $model: require('./$model')," >> $index
+  echo "sequelize.import('$model', require('./$model'));" >> $index
+  #echo "  $model: require('./$model')," >> $index
 done
-echo ""}"" >> $index
+echo "};" >> $index
 
 echo 'all good... ciao'
