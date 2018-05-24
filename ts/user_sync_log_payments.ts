@@ -22,7 +22,11 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     },
     payment_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'payments',
+        key: 'id'
+      }
     },
     sync_operation: {
       type: DataTypes.INTEGER(4),

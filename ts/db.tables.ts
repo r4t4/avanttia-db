@@ -4,20 +4,20 @@ import * as sequelize from 'sequelize';
 import * as def from './db';
 
 export interface ITables {
-  banks:def.banksModel;
-  collection_policies:def.collection_policiesModel;
   account_statement_notifications:def.account_statement_notificationsModel;
+  banks:def.banksModel;
   accounts:def.accountsModel;
   comercial_activities:def.comercial_activitiesModel;
+  collection_policies:def.collection_policiesModel;
   companies:def.companiesModel;
   company_intercom_data:def.company_intercom_dataModel;
+  company_user:def.company_userModel;
   company_payments:def.company_paymentsModel;
   company_site:def.company_siteModel;
-  company_user:def.company_userModel;
   contact_email:def.contact_emailModel;
+  contpaqi_license_config_log:def.contpaqi_license_config_logModel;
   contact_phone:def.contact_phoneModel;
   contacts:def.contactsModel;
-  contpaqi_license_config_log:def.contpaqi_license_config_logModel;
   contracts:def.contractsModel;
   credit_days:def.credit_daysModel;
   credit_notes:def.credit_notesModel;
@@ -27,13 +27,13 @@ export interface ITables {
   credit_report_companies:def.credit_report_companiesModel;
   credit_report_credits:def.credit_report_creditsModel;
   credit_report_customers:def.credit_report_customersModel;
-  credit_report_employments:def.credit_report_employmentsModel;
   credit_report_endorses:def.credit_report_endorsesModel;
+  credit_report_employments:def.credit_report_employmentsModel;
   credit_report_morals:def.credit_report_moralsModel;
-  credit_report_shareholders:def.credit_report_shareholdersModel;
   credit_reports:def.credit_reportsModel;
-  cuenta_clabe_control:def.cuenta_clabe_controlModel;
+  credit_report_shareholders:def.credit_report_shareholdersModel;
   currencies:def.currenciesModel;
+  cuenta_clabe_control:def.cuenta_clabe_controlModel;
   customer_invites:def.customer_invitesModel;
   customers:def.customersModel;
   customers_pending_balance:def.customers_pending_balanceModel;
@@ -55,8 +55,8 @@ export interface ITables {
   incidences:def.incidencesModel;
   invoice_json:def.invoice_jsonModel;
   jobs:def.jobsModel;
-  licence_renewals:def.licence_renewalsModel;
   licences:def.licencesModel;
+  licence_renewals:def.licence_renewalsModel;
   license_payments:def.license_paymentsModel;
   licenses_contpaqi:def.licenses_contpaqiModel;
   licenses_feraz:def.licenses_ferazModel;
@@ -70,15 +70,10 @@ export interface ITables {
   notifications_customers:def.notifications_customersModel;
   notifications_sms:def.notifications_smsModel;
   notifications_templates:def.notifications_templatesModel;
-  oauth_access_tokens:def.oauth_access_tokensModel;
-  oauth_auth_codes:def.oauth_auth_codesModel;
-  oauth_clients:def.oauth_clientsModel;
-  oauth_personal_access_clients:def.oauth_personal_access_clientsModel;
-  oauth_refresh_tokens:def.oauth_refresh_tokensModel;
   password_resets:def.password_resetsModel;
   pay_days:def.pay_daysModel;
-  payment_concepts:def.payment_conceptsModel;
   payment_formats:def.payment_formatsModel;
+  payment_concepts:def.payment_conceptsModel;
   payment_methods:def.payment_methodsModel;
   payment_periods:def.payment_periodsModel;
   payment_promise:def.payment_promiseModel;
@@ -87,12 +82,12 @@ export interface ITables {
   payments:def.paymentsModel;
   payments_receivable:def.payments_receivableModel;
   payments_request:def.payments_requestModel;
+  permissions:def.permissionsModel;
   periods:def.periodsModel;
   permission_role:def.permission_roleModel;
-  permissions:def.permissionsModel;
   plans:def.plansModel;
-  promises_payment:def.promises_paymentModel;
   receivables:def.receivablesModel;
+  promises_payment:def.promises_paymentModel;
   receivables_notifications:def.receivables_notificationsModel;
   recovery_goals:def.recovery_goalsModel;
   role_user:def.role_userModel;
@@ -100,9 +95,9 @@ export interface ITables {
   sessions:def.sessionsModel;
   sites:def.sitesModel;
   sync_log:def.sync_logModel;
-  transactions:def.transactionsModel;
   transactions_files:def.transactions_filesModel;
   user_notifications:def.user_notificationsModel;
+  transactions:def.transactionsModel;
   user_sync_log:def.user_sync_logModel;
   user_sync_log_payments:def.user_sync_log_paymentsModel;
   users:def.usersModel;
@@ -111,20 +106,20 @@ export interface ITables {
 
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
-    banks: seq.import(path.join(__dirname, './banks')),
-    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
+    banks: seq.import(path.join(__dirname, './banks')),
     accounts: seq.import(path.join(__dirname, './accounts')),
     comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
+    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     companies: seq.import(path.join(__dirname, './companies')),
     company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
+    company_user: seq.import(path.join(__dirname, './company_user')),
     company_payments: seq.import(path.join(__dirname, './company_payments')),
     company_site: seq.import(path.join(__dirname, './company_site')),
-    company_user: seq.import(path.join(__dirname, './company_user')),
     contact_email: seq.import(path.join(__dirname, './contact_email')),
+    contpaqi_license_config_log: seq.import(path.join(__dirname, './contpaqi_license_config_log')),
     contact_phone: seq.import(path.join(__dirname, './contact_phone')),
     contacts: seq.import(path.join(__dirname, './contacts')),
-    contpaqi_license_config_log: seq.import(path.join(__dirname, './contpaqi_license_config_log')),
     contracts: seq.import(path.join(__dirname, './contracts')),
     credit_days: seq.import(path.join(__dirname, './credit_days')),
     credit_notes: seq.import(path.join(__dirname, './credit_notes')),
@@ -134,13 +129,13 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     credit_report_companies: seq.import(path.join(__dirname, './credit_report_companies')),
     credit_report_credits: seq.import(path.join(__dirname, './credit_report_credits')),
     credit_report_customers: seq.import(path.join(__dirname, './credit_report_customers')),
-    credit_report_employments: seq.import(path.join(__dirname, './credit_report_employments')),
     credit_report_endorses: seq.import(path.join(__dirname, './credit_report_endorses')),
+    credit_report_employments: seq.import(path.join(__dirname, './credit_report_employments')),
     credit_report_morals: seq.import(path.join(__dirname, './credit_report_morals')),
-    credit_report_shareholders: seq.import(path.join(__dirname, './credit_report_shareholders')),
     credit_reports: seq.import(path.join(__dirname, './credit_reports')),
-    cuenta_clabe_control: seq.import(path.join(__dirname, './cuenta_clabe_control')),
+    credit_report_shareholders: seq.import(path.join(__dirname, './credit_report_shareholders')),
     currencies: seq.import(path.join(__dirname, './currencies')),
+    cuenta_clabe_control: seq.import(path.join(__dirname, './cuenta_clabe_control')),
     customer_invites: seq.import(path.join(__dirname, './customer_invites')),
     customers: seq.import(path.join(__dirname, './customers')),
     customers_pending_balance: seq.import(path.join(__dirname, './customers_pending_balance')),
@@ -162,8 +157,8 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     incidences: seq.import(path.join(__dirname, './incidences')),
     invoice_json: seq.import(path.join(__dirname, './invoice_json')),
     jobs: seq.import(path.join(__dirname, './jobs')),
-    licence_renewals: seq.import(path.join(__dirname, './licence_renewals')),
     licences: seq.import(path.join(__dirname, './licences')),
+    licence_renewals: seq.import(path.join(__dirname, './licence_renewals')),
     license_payments: seq.import(path.join(__dirname, './license_payments')),
     licenses_contpaqi: seq.import(path.join(__dirname, './licenses_contpaqi')),
     licenses_feraz: seq.import(path.join(__dirname, './licenses_feraz')),
@@ -177,15 +172,10 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     notifications_customers: seq.import(path.join(__dirname, './notifications_customers')),
     notifications_sms: seq.import(path.join(__dirname, './notifications_sms')),
     notifications_templates: seq.import(path.join(__dirname, './notifications_templates')),
-    oauth_access_tokens: seq.import(path.join(__dirname, './oauth_access_tokens')),
-    oauth_auth_codes: seq.import(path.join(__dirname, './oauth_auth_codes')),
-    oauth_clients: seq.import(path.join(__dirname, './oauth_clients')),
-    oauth_personal_access_clients: seq.import(path.join(__dirname, './oauth_personal_access_clients')),
-    oauth_refresh_tokens: seq.import(path.join(__dirname, './oauth_refresh_tokens')),
     password_resets: seq.import(path.join(__dirname, './password_resets')),
     pay_days: seq.import(path.join(__dirname, './pay_days')),
-    payment_concepts: seq.import(path.join(__dirname, './payment_concepts')),
     payment_formats: seq.import(path.join(__dirname, './payment_formats')),
+    payment_concepts: seq.import(path.join(__dirname, './payment_concepts')),
     payment_methods: seq.import(path.join(__dirname, './payment_methods')),
     payment_periods: seq.import(path.join(__dirname, './payment_periods')),
     payment_promise: seq.import(path.join(__dirname, './payment_promise')),
@@ -194,12 +184,12 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     payments: seq.import(path.join(__dirname, './payments')),
     payments_receivable: seq.import(path.join(__dirname, './payments_receivable')),
     payments_request: seq.import(path.join(__dirname, './payments_request')),
+    permissions: seq.import(path.join(__dirname, './permissions')),
     periods: seq.import(path.join(__dirname, './periods')),
     permission_role: seq.import(path.join(__dirname, './permission_role')),
-    permissions: seq.import(path.join(__dirname, './permissions')),
     plans: seq.import(path.join(__dirname, './plans')),
-    promises_payment: seq.import(path.join(__dirname, './promises_payment')),
     receivables: seq.import(path.join(__dirname, './receivables')),
+    promises_payment: seq.import(path.join(__dirname, './promises_payment')),
     receivables_notifications: seq.import(path.join(__dirname, './receivables_notifications')),
     recovery_goals: seq.import(path.join(__dirname, './recovery_goals')),
     role_user: seq.import(path.join(__dirname, './role_user')),
@@ -207,9 +197,9 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     sessions: seq.import(path.join(__dirname, './sessions')),
     sites: seq.import(path.join(__dirname, './sites')),
     sync_log: seq.import(path.join(__dirname, './sync_log')),
-    transactions: seq.import(path.join(__dirname, './transactions')),
     transactions_files: seq.import(path.join(__dirname, './transactions_files')),
     user_notifications: seq.import(path.join(__dirname, './user_notifications')),
+    transactions: seq.import(path.join(__dirname, './transactions')),
     user_sync_log: seq.import(path.join(__dirname, './user_sync_log')),
     user_sync_log_payments: seq.import(path.join(__dirname, './user_sync_log_payments')),
     users: seq.import(path.join(__dirname, './users')),
