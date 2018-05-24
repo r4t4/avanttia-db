@@ -27,10 +27,10 @@ module.exports = function(sequelize, DataTypes) {
     payment_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-      references: {
-        model: 'payments',
-        key: 'id'
-      }
+//      references: {
+//        model: 'payments',
+//        key: 'id'
+//      }
     },
     paybook_transaction_id: {
       type: DataTypes.STRING(255),
