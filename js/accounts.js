@@ -11,10 +11,10 @@ module.exports = function(sequelize, DataTypes) {
     company_site_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-      references: {
-        model: 'company_site',
-        key: 'id'
-      }
+//      references: {
+//        model: 'company_site',
+//        key: 'id'
+//      }
     },
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
