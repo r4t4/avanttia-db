@@ -4,15 +4,15 @@ import * as sequelize from 'sequelize';
 import * as def from './db';
 
 export interface ITables {
-  account_statement_notifications:def.account_statement_notificationsModel;
+  banks:def.banksModel;
   collection_policies:def.collection_policiesModel;
   accounts:def.accountsModel;
+  account_statement_notifications:def.account_statement_notificationsModel;
   comercial_activities:def.comercial_activitiesModel;
-  banks:def.banksModel;
   companies:def.companiesModel;
   company_intercom_data:def.company_intercom_dataModel;
-  company_site:def.company_siteModel;
   company_payments:def.company_paymentsModel;
+  company_site:def.company_siteModel;
   company_user:def.company_userModel;
   contact_email:def.contact_emailModel;
   contact_phone:def.contact_phoneModel;
@@ -89,8 +89,8 @@ export interface ITables {
   payments_request:def.payments_requestModel;
   periods:def.periodsModel;
   permission_role:def.permission_roleModel;
-  plans:def.plansModel;
   permissions:def.permissionsModel;
+  plans:def.plansModel;
   promises_payment:def.promises_paymentModel;
   receivables:def.receivablesModel;
   receivables_notifications:def.receivables_notificationsModel;
@@ -111,15 +111,15 @@ export interface ITables {
 
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
-    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
+    banks: seq.import(path.join(__dirname, './banks')),
     collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     accounts: seq.import(path.join(__dirname, './accounts')),
+    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
     comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
-    banks: seq.import(path.join(__dirname, './banks')),
     companies: seq.import(path.join(__dirname, './companies')),
     company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
-    company_site: seq.import(path.join(__dirname, './company_site')),
     company_payments: seq.import(path.join(__dirname, './company_payments')),
+    company_site: seq.import(path.join(__dirname, './company_site')),
     company_user: seq.import(path.join(__dirname, './company_user')),
     contact_email: seq.import(path.join(__dirname, './contact_email')),
     contact_phone: seq.import(path.join(__dirname, './contact_phone')),
@@ -196,8 +196,8 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     payments_request: seq.import(path.join(__dirname, './payments_request')),
     periods: seq.import(path.join(__dirname, './periods')),
     permission_role: seq.import(path.join(__dirname, './permission_role')),
-    plans: seq.import(path.join(__dirname, './plans')),
     permissions: seq.import(path.join(__dirname, './permissions')),
+    plans: seq.import(path.join(__dirname, './plans')),
     promises_payment: seq.import(path.join(__dirname, './promises_payment')),
     receivables: seq.import(path.join(__dirname, './receivables')),
     receivables_notifications: seq.import(path.join(__dirname, './receivables_notifications')),
