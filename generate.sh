@@ -3,6 +3,9 @@
 javascript="./js"
 typescript="./ts"
 
+rm -fR $javascript $typescript
+mkdir -p $javascript $typescript
+
 # forcing the .env... sorry... there are many ways to skin a cat
 source .env
 # generate JavaScript

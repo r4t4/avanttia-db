@@ -5,18 +5,18 @@ import * as def from './db';
 
 export interface ITables {
   banks:def.banksModel;
-  collection_policies:def.collection_policiesModel;
-  accounts:def.accountsModel;
   account_statement_notifications:def.account_statement_notificationsModel;
+  accounts:def.accountsModel;
+  collection_policies:def.collection_policiesModel;
   comercial_activities:def.comercial_activitiesModel;
   companies:def.companiesModel;
-  company_intercom_data:def.company_intercom_dataModel;
   company_payments:def.company_paymentsModel;
+  company_intercom_data:def.company_intercom_dataModel;
   company_site:def.company_siteModel;
   company_user:def.company_userModel;
   contact_email:def.contact_emailModel;
-  contact_phone:def.contact_phoneModel;
   contacts:def.contactsModel;
+  contact_phone:def.contact_phoneModel;
   contpaqi_license_config_log:def.contpaqi_license_config_logModel;
   contracts:def.contractsModel;
   credit_days:def.credit_daysModel;
@@ -112,18 +112,18 @@ export interface ITables {
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
     banks: seq.import(path.join(__dirname, './banks')),
-    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
-    accounts: seq.import(path.join(__dirname, './accounts')),
     account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
+    accounts: seq.import(path.join(__dirname, './accounts')),
+    collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     companies: seq.import(path.join(__dirname, './companies')),
-    company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
     company_payments: seq.import(path.join(__dirname, './company_payments')),
+    company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
     company_site: seq.import(path.join(__dirname, './company_site')),
     company_user: seq.import(path.join(__dirname, './company_user')),
     contact_email: seq.import(path.join(__dirname, './contact_email')),
-    contact_phone: seq.import(path.join(__dirname, './contact_phone')),
     contacts: seq.import(path.join(__dirname, './contacts')),
+    contact_phone: seq.import(path.join(__dirname, './contact_phone')),
     contpaqi_license_config_log: seq.import(path.join(__dirname, './contpaqi_license_config_log')),
     contracts: seq.import(path.join(__dirname, './contracts')),
     credit_days: seq.import(path.join(__dirname, './credit_days')),
