@@ -46,6 +46,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
     },
+    sync: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false
+    },
+    sync_enabled: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false
+    },
     in_progress: {
       type: DataTypes.INTEGER(4),
       allowNull: false

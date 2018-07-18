@@ -4,8 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('company_intercom_data', {
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false,
-      defaultValue: '0'
+      allowNull: false
     },
     sinresgistro_bit: {
       type: DataTypes.BIGINT,
@@ -60,7 +59,7 @@ module.exports = function(sequelize, DataTypes) {
     rel_cred_pago: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: '0.00000000'
+      defaultValue: '0.0000'
     }
   }, {
     tableName: 'company_intercom_data',

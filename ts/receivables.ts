@@ -151,7 +151,7 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     },
     concept_key_contpaqi: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(80),
       allowNull: false
     }
   }, {

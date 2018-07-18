@@ -149,6 +149,18 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     email4: {
       type: DataTypes.STRING(255),
       allowNull: false
+    },
+    parent_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'customers',
+        key: 'id'
+      }
+    },
+    subsidiary: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'customers',

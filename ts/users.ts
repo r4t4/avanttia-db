@@ -91,6 +91,15 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     last_login: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    has_sign: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    filename_sign: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'users',

@@ -11,10 +11,10 @@ module.exports = function(sequelize, DataTypes) {
     receivable_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
-//      references: {
-//        model: 'receivables',
-//        key: 'id'
-//      }
+      references: {
+        model: 'receivables',
+        key: 'id'
+      }
     },
     payment: {
       type: DataTypes.INTEGER(11),

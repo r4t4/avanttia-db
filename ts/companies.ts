@@ -210,6 +210,23 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: '100'
+    },
+    has_logo: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    filename_logo: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    documents_logo: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    importation_date: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'companies',

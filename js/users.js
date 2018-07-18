@@ -11,10 +11,10 @@ module.exports = function(sequelize, DataTypes) {
     licence_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-//      references: {
-//        model: 'licences',
-//        key: 'id'
-//      }
+      references: {
+        model: 'licences',
+        key: 'id'
+      }
     },
     name: {
       type: DataTypes.STRING(255),
@@ -40,10 +40,10 @@ module.exports = function(sequelize, DataTypes) {
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
-//      references: {
-//        model: 'companies',
-//        key: 'id'
-//      }
+      references: {
+        model: 'companies',
+        key: 'id'
+      }
     },
     type: {
       type: DataTypes.INTEGER(11),
@@ -86,6 +86,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     last_login: {
       type: DataTypes.DATE,
+      allowNull: true
+    },
+    has_sign: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    filename_sign: {
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
