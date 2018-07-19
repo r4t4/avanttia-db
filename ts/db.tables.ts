@@ -4,34 +4,51 @@ import * as sequelize from 'sequelize';
 import * as def from './db';
 
 export interface ITables {
-  account_statement_notifications:def.account_statement_notificationsModel;
-  banks:def.banksModel;
   accounts:def.accountsModel;
+  account_statement_notifications:def.account_statement_notificationsModel;
+  c_aduana:def.c_aduanaModel;
+  banks:def.banksModel;
+  c_clave_prod_serv:def.c_clave_prod_servModel;
+  c_clave_unidad:def.c_clave_unidadModel;
+  c_impuesto:def.c_impuestoModel;
+  c_codigo_postal:def.c_codigo_postalModel;
+  c_forma_pago:def.c_forma_pagoModel;
+  c_metodo_pago:def.c_metodo_pagoModel;
+  c_moneda:def.c_monedaModel;
+  c_patente_aduanal:def.c_patente_aduanalModel;
+  c_regimen_fiscal:def.c_regimen_fiscalModel;
+  c_num_pedimento_aduana:def.c_num_pedimento_aduanaModel;
+  c_pais:def.c_paisModel;
+  c_tasa_o_cuota:def.c_tasa_o_cuotaModel;
+  c_tipo_relacion:def.c_tipo_relacionModel;
+  c_tipo_de_comprobante:def.c_tipo_de_comprobanteModel;
+  c_tipo_factor:def.c_tipo_factorModel;
+  c_uso_cfdi:def.c_uso_cfdiModel;
   collection_policies:def.collection_policiesModel;
-  comercial_activities:def.comercial_activitiesModel;
   companies:def.companiesModel;
+  company_payments:def.company_paymentsModel;
+  comercial_activities:def.comercial_activitiesModel;
   company_intercom_data:def.company_intercom_dataModel;
   company_site:def.company_siteModel;
-  company_payments:def.company_paymentsModel;
   company_user:def.company_userModel;
   contact_email:def.contact_emailModel;
-  contact_phone:def.contact_phoneModel;
   contacts:def.contactsModel;
-  contracts:def.contractsModel;
+  contact_phone:def.contact_phoneModel;
   contpaqi_license_config_log:def.contpaqi_license_config_logModel;
+  contracts:def.contractsModel;
   credit_days:def.credit_daysModel;
-  credit_notes:def.credit_notesModel;
   credit_payments:def.credit_paymentsModel;
+  credit_notes:def.credit_notesModel;
   credit_report_accounts:def.credit_report_accountsModel;
   credit_report_addresses:def.credit_report_addressesModel;
   credit_report_companies:def.credit_report_companiesModel;
-  credit_report_credits:def.credit_report_creditsModel;
   credit_report_customers:def.credit_report_customersModel;
+  credit_report_credits:def.credit_report_creditsModel;
   credit_report_employments:def.credit_report_employmentsModel;
   credit_report_endorses:def.credit_report_endorsesModel;
   credit_report_morals:def.credit_report_moralsModel;
-  credit_report_shareholders:def.credit_report_shareholdersModel;
   credit_reports:def.credit_reportsModel;
+  credit_report_shareholders:def.credit_report_shareholdersModel;
   cuenta_clabe_control:def.cuenta_clabe_controlModel;
   currencies:def.currenciesModel;
   customer_invites:def.customer_invitesModel;
@@ -75,13 +92,13 @@ export interface ITables {
   oauth_clients:def.oauth_clientsModel;
   oauth_personal_access_clients:def.oauth_personal_access_clientsModel;
   oauth_refresh_tokens:def.oauth_refresh_tokensModel;
-  password_resets:def.password_resetsModel;
   pay_days:def.pay_daysModel;
+  password_resets:def.password_resetsModel;
   payment_concepts:def.payment_conceptsModel;
   payment_formats:def.payment_formatsModel;
   payment_methods:def.payment_methodsModel;
-  payment_periods:def.payment_periodsModel;
   payment_promise:def.payment_promiseModel;
+  payment_periods:def.payment_periodsModel;
   payment_promise_receivables:def.payment_promise_receivablesModel;
   payment_request_receivable:def.payment_request_receivableModel;
   payments:def.paymentsModel;
@@ -105,40 +122,57 @@ export interface ITables {
   user_notifications:def.user_notificationsModel;
   user_sync_log:def.user_sync_logModel;
   user_sync_log_payments:def.user_sync_log_paymentsModel;
-  users:def.usersModel;
   webservices_log:def.webservices_logModel;
+  users:def.usersModel;
 }
 
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
-    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
-    banks: seq.import(path.join(__dirname, './banks')),
     accounts: seq.import(path.join(__dirname, './accounts')),
+    account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
+    c_aduana: seq.import(path.join(__dirname, './c_aduana')),
+    banks: seq.import(path.join(__dirname, './banks')),
+    c_clave_prod_serv: seq.import(path.join(__dirname, './c_clave_prod_serv')),
+    c_clave_unidad: seq.import(path.join(__dirname, './c_clave_unidad')),
+    c_impuesto: seq.import(path.join(__dirname, './c_impuesto')),
+    c_codigo_postal: seq.import(path.join(__dirname, './c_codigo_postal')),
+    c_forma_pago: seq.import(path.join(__dirname, './c_forma_pago')),
+    c_metodo_pago: seq.import(path.join(__dirname, './c_metodo_pago')),
+    c_moneda: seq.import(path.join(__dirname, './c_moneda')),
+    c_patente_aduanal: seq.import(path.join(__dirname, './c_patente_aduanal')),
+    c_regimen_fiscal: seq.import(path.join(__dirname, './c_regimen_fiscal')),
+    c_num_pedimento_aduana: seq.import(path.join(__dirname, './c_num_pedimento_aduana')),
+    c_pais: seq.import(path.join(__dirname, './c_pais')),
+    c_tasa_o_cuota: seq.import(path.join(__dirname, './c_tasa_o_cuota')),
+    c_tipo_relacion: seq.import(path.join(__dirname, './c_tipo_relacion')),
+    c_tipo_de_comprobante: seq.import(path.join(__dirname, './c_tipo_de_comprobante')),
+    c_tipo_factor: seq.import(path.join(__dirname, './c_tipo_factor')),
+    c_uso_cfdi: seq.import(path.join(__dirname, './c_uso_cfdi')),
     collection_policies: seq.import(path.join(__dirname, './collection_policies')),
-    comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     companies: seq.import(path.join(__dirname, './companies')),
+    company_payments: seq.import(path.join(__dirname, './company_payments')),
+    comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     company_intercom_data: seq.import(path.join(__dirname, './company_intercom_data')),
     company_site: seq.import(path.join(__dirname, './company_site')),
-    company_payments: seq.import(path.join(__dirname, './company_payments')),
     company_user: seq.import(path.join(__dirname, './company_user')),
     contact_email: seq.import(path.join(__dirname, './contact_email')),
-    contact_phone: seq.import(path.join(__dirname, './contact_phone')),
     contacts: seq.import(path.join(__dirname, './contacts')),
-    contracts: seq.import(path.join(__dirname, './contracts')),
+    contact_phone: seq.import(path.join(__dirname, './contact_phone')),
     contpaqi_license_config_log: seq.import(path.join(__dirname, './contpaqi_license_config_log')),
+    contracts: seq.import(path.join(__dirname, './contracts')),
     credit_days: seq.import(path.join(__dirname, './credit_days')),
-    credit_notes: seq.import(path.join(__dirname, './credit_notes')),
     credit_payments: seq.import(path.join(__dirname, './credit_payments')),
+    credit_notes: seq.import(path.join(__dirname, './credit_notes')),
     credit_report_accounts: seq.import(path.join(__dirname, './credit_report_accounts')),
     credit_report_addresses: seq.import(path.join(__dirname, './credit_report_addresses')),
     credit_report_companies: seq.import(path.join(__dirname, './credit_report_companies')),
-    credit_report_credits: seq.import(path.join(__dirname, './credit_report_credits')),
     credit_report_customers: seq.import(path.join(__dirname, './credit_report_customers')),
+    credit_report_credits: seq.import(path.join(__dirname, './credit_report_credits')),
     credit_report_employments: seq.import(path.join(__dirname, './credit_report_employments')),
     credit_report_endorses: seq.import(path.join(__dirname, './credit_report_endorses')),
     credit_report_morals: seq.import(path.join(__dirname, './credit_report_morals')),
-    credit_report_shareholders: seq.import(path.join(__dirname, './credit_report_shareholders')),
     credit_reports: seq.import(path.join(__dirname, './credit_reports')),
+    credit_report_shareholders: seq.import(path.join(__dirname, './credit_report_shareholders')),
     cuenta_clabe_control: seq.import(path.join(__dirname, './cuenta_clabe_control')),
     currencies: seq.import(path.join(__dirname, './currencies')),
     customer_invites: seq.import(path.join(__dirname, './customer_invites')),
@@ -182,13 +216,13 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     oauth_clients: seq.import(path.join(__dirname, './oauth_clients')),
     oauth_personal_access_clients: seq.import(path.join(__dirname, './oauth_personal_access_clients')),
     oauth_refresh_tokens: seq.import(path.join(__dirname, './oauth_refresh_tokens')),
-    password_resets: seq.import(path.join(__dirname, './password_resets')),
     pay_days: seq.import(path.join(__dirname, './pay_days')),
+    password_resets: seq.import(path.join(__dirname, './password_resets')),
     payment_concepts: seq.import(path.join(__dirname, './payment_concepts')),
     payment_formats: seq.import(path.join(__dirname, './payment_formats')),
     payment_methods: seq.import(path.join(__dirname, './payment_methods')),
-    payment_periods: seq.import(path.join(__dirname, './payment_periods')),
     payment_promise: seq.import(path.join(__dirname, './payment_promise')),
+    payment_periods: seq.import(path.join(__dirname, './payment_periods')),
     payment_promise_receivables: seq.import(path.join(__dirname, './payment_promise_receivables')),
     payment_request_receivable: seq.import(path.join(__dirname, './payment_request_receivable')),
     payments: seq.import(path.join(__dirname, './payments')),
@@ -212,8 +246,8 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     user_notifications: seq.import(path.join(__dirname, './user_notifications')),
     user_sync_log: seq.import(path.join(__dirname, './user_sync_log')),
     user_sync_log_payments: seq.import(path.join(__dirname, './user_sync_log_payments')),
-    users: seq.import(path.join(__dirname, './users')),
     webservices_log: seq.import(path.join(__dirname, './webservices_log')),
+    users: seq.import(path.join(__dirname, './users')),
   };
   return tables;
 };
