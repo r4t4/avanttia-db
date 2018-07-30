@@ -94,7 +94,6 @@ module.exports = (sequelize) => {
     recovery_goals: sequelize.import('recovery_goals', require('./recovery_goals')),
     roles: sequelize.import('roles', require('./roles')),
     role_user: sequelize.import('role_user', require('./role_user')),
-    sessions: sequelize.import('sessions', require('./sessions')),
     sites: sequelize.import('sites', require('./sites')),
     sync_log: sequelize.import('sync_log', require('./sync_log')),
     transactions_files: sequelize.import('transactions_files', require('./transactions_files')),

@@ -34,6 +34,16 @@ export interface accountsAttribute {
 export interface accountsInstance extends Sequelize.Instance<accountsAttribute>, accountsAttribute { }
 export interface accountsModel extends Sequelize.Model<accountsInstance, accountsAttribute> { }
 
+// table: banxico_exchange_rate
+export interface banxico_exchange_rateAttribute {
+  id:number;
+  currency_code:string;
+  exchange_rate:number;
+  when:Date;
+}
+export interface banxico_exchange_rateInstance extends Sequelize.Instance<banxico_exchange_rateAttribute>, banxico_exchange_rateAttribute { }
+export interface banxico_exchange_rateModel extends Sequelize.Model<banxico_exchange_rateInstance, banxico_exchange_rateAttribute> { }
+
 // table: banks
 export interface banksAttribute {
   id:number;
@@ -46,16 +56,6 @@ export interface banksAttribute {
 }
 export interface banksInstance extends Sequelize.Instance<banksAttribute>, banksAttribute { }
 export interface banksModel extends Sequelize.Model<banksInstance, banksAttribute> { }
-
-// table: banxico_exchange_rate
-export interface banxico_exchange_rateAttribute {
-  id:number;
-  currency_code:string;
-  exchange_rate:number;
-  when:Date;
-}
-export interface banxico_exchange_rateInstance extends Sequelize.Instance<banxico_exchange_rateAttribute>, banxico_exchange_rateAttribute { }
-export interface banxico_exchange_rateModel extends Sequelize.Model<banxico_exchange_rateInstance, banxico_exchange_rateAttribute> { }
 
 // table: collection_policies
 export interface collection_policiesAttribute {
@@ -853,16 +853,6 @@ export interface import_data_service_logsAttribute {
 export interface import_data_service_logsInstance extends Sequelize.Instance<import_data_service_logsAttribute>, import_data_service_logsAttribute { }
 export interface import_data_service_logsModel extends Sequelize.Model<import_data_service_logsInstance, import_data_service_logsAttribute> { }
 
-// table: incidence_reasons
-export interface incidence_reasonsAttribute {
-  id:number;
-  reason:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface incidence_reasonsInstance extends Sequelize.Instance<incidence_reasonsAttribute>, incidence_reasonsAttribute { }
-export interface incidence_reasonsModel extends Sequelize.Model<incidence_reasonsInstance, incidence_reasonsAttribute> { }
-
 // table: incidences
 export interface incidencesAttribute {
   id:number;
@@ -882,16 +872,15 @@ export interface incidencesAttribute {
 export interface incidencesInstance extends Sequelize.Instance<incidencesAttribute>, incidencesAttribute { }
 export interface incidencesModel extends Sequelize.Model<incidencesInstance, incidencesAttribute> { }
 
-// table: invoice_json
-export interface invoice_jsonAttribute {
+// table: incidence_reasons
+export interface incidence_reasonsAttribute {
   id:number;
-  data:string;
-  receivable_id:number;
+  reason:string;
   created_at:Date;
   updated_at:Date;
 }
-export interface invoice_jsonInstance extends Sequelize.Instance<invoice_jsonAttribute>, invoice_jsonAttribute { }
-export interface invoice_jsonModel extends Sequelize.Model<invoice_jsonInstance, invoice_jsonAttribute> { }
+export interface incidence_reasonsInstance extends Sequelize.Instance<incidence_reasonsAttribute>, incidence_reasonsAttribute { }
+export interface incidence_reasonsModel extends Sequelize.Model<incidence_reasonsInstance, incidence_reasonsAttribute> { }
 
 // table: jobs
 export interface jobsAttribute {
@@ -906,6 +895,17 @@ export interface jobsAttribute {
 }
 export interface jobsInstance extends Sequelize.Instance<jobsAttribute>, jobsAttribute { }
 export interface jobsModel extends Sequelize.Model<jobsInstance, jobsAttribute> { }
+
+// table: invoice_json
+export interface invoice_jsonAttribute {
+  id:number;
+  data:string;
+  receivable_id:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface invoice_jsonInstance extends Sequelize.Instance<invoice_jsonAttribute>, invoice_jsonAttribute { }
+export interface invoice_jsonModel extends Sequelize.Model<invoice_jsonInstance, invoice_jsonAttribute> { }
 
 // table: licence_renewals
 export interface licence_renewalsAttribute {
@@ -1585,6 +1585,14 @@ export interface receivables_notificationsAttribute {
 export interface receivables_notificationsInstance extends Sequelize.Instance<receivables_notificationsAttribute>, receivables_notificationsAttribute { }
 export interface receivables_notificationsModel extends Sequelize.Model<receivables_notificationsInstance, receivables_notificationsAttribute> { }
 
+// table: role_user
+export interface role_userAttribute {
+  user_id:number;
+  role_id:number;
+}
+export interface role_userInstance extends Sequelize.Instance<role_userAttribute>, role_userAttribute { }
+export interface role_userModel extends Sequelize.Model<role_userInstance, role_userAttribute> { }
+
 // table: recovery_goals
 export interface recovery_goalsAttribute {
   id:number;
@@ -1602,14 +1610,6 @@ export interface recovery_goalsAttribute {
 export interface recovery_goalsInstance extends Sequelize.Instance<recovery_goalsAttribute>, recovery_goalsAttribute { }
 export interface recovery_goalsModel extends Sequelize.Model<recovery_goalsInstance, recovery_goalsAttribute> { }
 
-// table: role_user
-export interface role_userAttribute {
-  user_id:number;
-  role_id:number;
-}
-export interface role_userInstance extends Sequelize.Instance<role_userAttribute>, role_userAttribute { }
-export interface role_userModel extends Sequelize.Model<role_userInstance, role_userAttribute> { }
-
 // table: roles
 export interface rolesAttribute {
   id:number;
@@ -1621,15 +1621,6 @@ export interface rolesAttribute {
 }
 export interface rolesInstance extends Sequelize.Instance<rolesAttribute>, rolesAttribute { }
 export interface rolesModel extends Sequelize.Model<rolesInstance, rolesAttribute> { }
-
-// table: sessions
-export interface sessionsAttribute {
-  id:string;
-  payload:string;
-  last_activity:number;
-}
-export interface sessionsInstance extends Sequelize.Instance<sessionsAttribute>, sessionsAttribute { }
-export interface sessionsModel extends Sequelize.Model<sessionsInstance, sessionsAttribute> { }
 
 // table: sites
 export interface sitesAttribute {

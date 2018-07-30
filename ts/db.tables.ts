@@ -6,8 +6,8 @@ import * as def from './db';
 export interface ITables {
   account_statement_notifications:def.account_statement_notificationsModel;
   accounts:def.accountsModel;
-  banks:def.banksModel;
   banxico_exchange_rate:def.banxico_exchange_rateModel;
+  banks:def.banksModel;
   collection_policies:def.collection_policiesModel;
   comercial_activities:def.comercial_activitiesModel;
   companies:def.companiesModel;
@@ -52,10 +52,10 @@ export interface ITables {
   history_assignments:def.history_assignmentsModel;
   history_invoices:def.history_invoicesModel;
   import_data_service_logs:def.import_data_service_logsModel;
-  incidence_reasons:def.incidence_reasonsModel;
   incidences:def.incidencesModel;
-  invoice_json:def.invoice_jsonModel;
+  incidence_reasons:def.incidence_reasonsModel;
   jobs:def.jobsModel;
+  invoice_json:def.invoice_jsonModel;
   licence_renewals:def.licence_renewalsModel;
   licences:def.licencesModel;
   license_payments:def.license_paymentsModel;
@@ -95,10 +95,9 @@ export interface ITables {
   promises_payment:def.promises_paymentModel;
   receivables:def.receivablesModel;
   receivables_notifications:def.receivables_notificationsModel;
-  recovery_goals:def.recovery_goalsModel;
   role_user:def.role_userModel;
+  recovery_goals:def.recovery_goalsModel;
   roles:def.rolesModel;
-  sessions:def.sessionsModel;
   sites:def.sitesModel;
   sync_log:def.sync_logModel;
   transactions:def.transactionsModel;
@@ -114,8 +113,8 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
     account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
     accounts: seq.import(path.join(__dirname, './accounts')),
-    banks: seq.import(path.join(__dirname, './banks')),
     banxico_exchange_rate: seq.import(path.join(__dirname, './banxico_exchange_rate')),
+    banks: seq.import(path.join(__dirname, './banks')),
     collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     companies: seq.import(path.join(__dirname, './companies')),
@@ -160,10 +159,10 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     history_assignments: seq.import(path.join(__dirname, './history_assignments')),
     history_invoices: seq.import(path.join(__dirname, './history_invoices')),
     import_data_service_logs: seq.import(path.join(__dirname, './import_data_service_logs')),
-    incidence_reasons: seq.import(path.join(__dirname, './incidence_reasons')),
     incidences: seq.import(path.join(__dirname, './incidences')),
-    invoice_json: seq.import(path.join(__dirname, './invoice_json')),
+    incidence_reasons: seq.import(path.join(__dirname, './incidence_reasons')),
     jobs: seq.import(path.join(__dirname, './jobs')),
+    invoice_json: seq.import(path.join(__dirname, './invoice_json')),
     licence_renewals: seq.import(path.join(__dirname, './licence_renewals')),
     licences: seq.import(path.join(__dirname, './licences')),
     license_payments: seq.import(path.join(__dirname, './license_payments')),
@@ -203,10 +202,9 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     promises_payment: seq.import(path.join(__dirname, './promises_payment')),
     receivables: seq.import(path.join(__dirname, './receivables')),
     receivables_notifications: seq.import(path.join(__dirname, './receivables_notifications')),
-    recovery_goals: seq.import(path.join(__dirname, './recovery_goals')),
     role_user: seq.import(path.join(__dirname, './role_user')),
+    recovery_goals: seq.import(path.join(__dirname, './recovery_goals')),
     roles: seq.import(path.join(__dirname, './roles')),
-    sessions: seq.import(path.join(__dirname, './sessions')),
     sites: seq.import(path.join(__dirname, './sites')),
     sync_log: seq.import(path.join(__dirname, './sync_log')),
     transactions: seq.import(path.join(__dirname, './transactions')),
