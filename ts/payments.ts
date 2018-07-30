@@ -231,6 +231,15 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(1),
       allowNull: false,
       defaultValue: '0'
+    },
+    notification_sent: {
+      type: DataTypes.INTEGER(1),
+      allowNull: true,
+      defaultValue: '0'
+    },
+    voucher: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'payments',

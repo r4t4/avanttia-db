@@ -223,6 +223,11 @@ module.exports = function(sequelize, DataTypes) {
     importation_date: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    interest_percent: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      defaultValue: '0.00'
     }
   }, {
     tableName: 'companies',

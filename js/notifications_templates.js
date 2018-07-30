@@ -54,6 +54,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(1),
       allowNull: false,
       defaultValue: '0'
+    },
+    fixed: {
+      type: DataTypes.INTEGER(1),
+      allowNull: true,
+      defaultValue: '0'
     }
   }, {
     tableName: 'notifications_templates',

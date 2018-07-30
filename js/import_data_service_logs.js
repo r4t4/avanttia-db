@@ -44,6 +44,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
+    payments_with_errors: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,

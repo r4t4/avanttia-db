@@ -157,6 +157,10 @@ module.exports = function(sequelize, DataTypes) {
     subsidiary: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    interest_percent: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
     }
   }, {
     tableName: 'customers',

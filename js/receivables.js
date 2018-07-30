@@ -149,6 +149,11 @@ module.exports = function(sequelize, DataTypes) {
     concept_key_contpaqi: {
       type: DataTypes.STRING(80),
       allowNull: false
+    },
+    notification_sent: {
+      type: DataTypes.INTEGER(1),
+      allowNull: true,
+      defaultValue: '0'
     }
   }, {
     tableName: 'receivables',

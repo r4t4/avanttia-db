@@ -3,6 +3,7 @@ module.exports = (sequelize) => {
     accounts: sequelize.import('accounts', require('./accounts')),
     account_statement_notifications: sequelize.import('account_statement_notifications', require('./account_statement_notifications')),
     banks: sequelize.import('banks', require('./banks')),
+    banxico_exchange_rate: sequelize.import('banxico_exchange_rate', require('./banxico_exchange_rate')),
     collection_policies: sequelize.import('collection_policies', require('./collection_policies')),
     comercial_activities: sequelize.import('comercial_activities', require('./comercial_activities')),
     companies: sequelize.import('companies', require('./companies')),

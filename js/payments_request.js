@@ -129,6 +129,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
+    },
+    voucher: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
   }, {
     tableName: 'payments_request',

@@ -7,6 +7,7 @@ export interface ITables {
   account_statement_notifications:def.account_statement_notificationsModel;
   accounts:def.accountsModel;
   banks:def.banksModel;
+  banxico_exchange_rate:def.banxico_exchange_rateModel;
   collection_policies:def.collection_policiesModel;
   comercial_activities:def.comercial_activitiesModel;
   companies:def.companiesModel;
@@ -87,8 +88,8 @@ export interface ITables {
   payments:def.paymentsModel;
   payments_receivable:def.payments_receivableModel;
   payments_request:def.payments_requestModel;
-  permission_role:def.permission_roleModel;
   periods:def.periodsModel;
+  permission_role:def.permission_roleModel;
   permissions:def.permissionsModel;
   plans:def.plansModel;
   promises_payment:def.promises_paymentModel;
@@ -114,6 +115,7 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     account_statement_notifications: seq.import(path.join(__dirname, './account_statement_notifications')),
     accounts: seq.import(path.join(__dirname, './accounts')),
     banks: seq.import(path.join(__dirname, './banks')),
+    banxico_exchange_rate: seq.import(path.join(__dirname, './banxico_exchange_rate')),
     collection_policies: seq.import(path.join(__dirname, './collection_policies')),
     comercial_activities: seq.import(path.join(__dirname, './comercial_activities')),
     companies: seq.import(path.join(__dirname, './companies')),
@@ -194,8 +196,8 @@ export const getModels = function(seq:sequelize.Sequelize):ITables {
     payments: seq.import(path.join(__dirname, './payments')),
     payments_receivable: seq.import(path.join(__dirname, './payments_receivable')),
     payments_request: seq.import(path.join(__dirname, './payments_request')),
-    permission_role: seq.import(path.join(__dirname, './permission_role')),
     periods: seq.import(path.join(__dirname, './periods')),
+    permission_role: seq.import(path.join(__dirname, './permission_role')),
     permissions: seq.import(path.join(__dirname, './permissions')),
     plans: seq.import(path.join(__dirname, './plans')),
     promises_payment: seq.import(path.join(__dirname, './promises_payment')),
