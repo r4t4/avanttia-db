@@ -8,6 +8,7 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
   return sequelize.define<sessionsInstance, sessionsAttribute>('sessions', {
     id: {
       type: DataTypes.STRING(255),
+      primaryKey: true,
       allowNull: false
     },
     payload: {
