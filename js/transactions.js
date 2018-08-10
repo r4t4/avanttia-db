@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(350),
       allowNull: true
     },
     reference: {

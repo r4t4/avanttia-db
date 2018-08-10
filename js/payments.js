@@ -228,11 +228,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0'
     },
-    notification_sent: {
-      type: DataTypes.INTEGER(1),
-      allowNull: true,
-      defaultValue: '0'
-    },
     voucher: {
       type: DataTypes.STRING(255),
       allowNull: true
