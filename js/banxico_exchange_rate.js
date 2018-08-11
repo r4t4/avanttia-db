@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   return sequelize.define('banxico_exchange_rate', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
     currency_code: {
       type: DataTypes.ENUM('CAD','EUR','GBP','JPY','USD','USD_FIX'),
