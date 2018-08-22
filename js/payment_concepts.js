@@ -37,6 +37,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
+    },
+    contpaqi_version: {
+      type: DataTypes.STRING(10),
+      allowNull: true
+    },
+    enabled: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false,
+      defaultValue: '1'
     }
   }, {
     tableName: 'payment_concepts',
