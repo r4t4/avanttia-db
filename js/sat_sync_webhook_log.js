@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     fecha_cancelacion: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
     sincronizado: {
       type: DataTypes.INTEGER(4),
