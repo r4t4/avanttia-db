@@ -17,6 +17,6 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "sequelize": "^4.37.8"
+    "sequelize": "4.38.0"
   }
 }

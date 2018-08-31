@@ -2,6 +2,7 @@ module.exports = (sequelize) => {
   return {
     accounts: sequelize.import('accounts', require('./accounts')),
     account_statement_notifications: sequelize.import('account_statement_notifications', require('./account_statement_notifications')),
+    autologin_tokens: sequelize.import('autologin_tokens', require('./autologin_tokens')),
     banks: sequelize.import('banks', require('./banks')),
     banxico_exchange_rate: sequelize.import('banxico_exchange_rate', require('./banxico_exchange_rate')),
     collection_policies: sequelize.import('collection_policies', require('./collection_policies')),
@@ -11,6 +12,7 @@ module.exports = (sequelize) => {
     company_payments: sequelize.import('company_payments', require('./company_payments')),
     company_site: sequelize.import('company_site', require('./company_site')),
     company_user: sequelize.import('company_user', require('./company_user')),
+    conflict_documents: sequelize.import('conflict_documents', require('./conflict_documents')),
     contact_email: sequelize.import('contact_email', require('./contact_email')),
     contact_phone: sequelize.import('contact_phone', require('./contact_phone')),
     contacts: sequelize.import('contacts', require('./contacts')),

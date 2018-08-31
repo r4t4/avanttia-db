@@ -52,6 +52,11 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
+    import_source: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      defaultValue: '1'
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,

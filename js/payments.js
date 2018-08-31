@@ -231,6 +231,11 @@ module.exports = function(sequelize, DataTypes) {
     voucher: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    stamp_tries: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
     tableName: 'payments',

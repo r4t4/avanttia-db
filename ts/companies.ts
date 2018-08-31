@@ -40,6 +40,10 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.STRING(255),
       allowNull: false
     },
+    password: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     ciec: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -182,6 +186,10 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(1),
       allowNull: false
     },
+    satsync_account_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     id_paybook_credential: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -232,6 +240,11 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.DECIMAL,
       allowNull: false,
       defaultValue: '0.00'
+    },
+    is_automatic_rep: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '1'
     }
   }, {
     tableName: 'companies',

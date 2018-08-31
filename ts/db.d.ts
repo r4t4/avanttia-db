@@ -34,16 +34,18 @@ export interface accountsAttribute {
 export interface accountsInstance extends Sequelize.Instance<accountsAttribute>, accountsAttribute { }
 export interface accountsModel extends Sequelize.Model<accountsInstance, accountsAttribute> { }
 
-// table: comercial_activities
-export interface comercial_activitiesAttribute {
+// table: autologin_tokens
+export interface autologin_tokensAttribute {
   id:number;
-  economic_sector_id:number;
-  name:string;
+  user_id:number;
+  token:string;
+  path?:string;
+  count?:number;
   created_at:Date;
   updated_at:Date;
 }
-export interface comercial_activitiesInstance extends Sequelize.Instance<comercial_activitiesAttribute>, comercial_activitiesAttribute { }
-export interface comercial_activitiesModel extends Sequelize.Model<comercial_activitiesInstance, comercial_activitiesAttribute> { }
+export interface autologin_tokensInstance extends Sequelize.Instance<autologin_tokensAttribute>, autologin_tokensAttribute { }
+export interface autologin_tokensModel extends Sequelize.Model<autologin_tokensInstance, autologin_tokensAttribute> { }
 
 // table: banks
 export interface banksAttribute {
@@ -68,49 +70,16 @@ export interface banxico_exchange_rateAttribute {
 export interface banxico_exchange_rateInstance extends Sequelize.Instance<banxico_exchange_rateAttribute>, banxico_exchange_rateAttribute { }
 export interface banxico_exchange_rateModel extends Sequelize.Model<banxico_exchange_rateInstance, banxico_exchange_rateAttribute> { }
 
-// table: collection_policies
-export interface collection_policiesAttribute {
+// table: comercial_activities
+export interface comercial_activitiesAttribute {
   id:number;
-  receivable_id:number;
-  payment:number;
-  number_payments:number;
-  date:Date;
-  amount:any;
-  days:string;
-  credit_days:number;
-  status:number;
-  deleted_at?:Date;
+  economic_sector_id:number;
+  name:string;
   created_at:Date;
   updated_at:Date;
 }
-export interface collection_policiesInstance extends Sequelize.Instance<collection_policiesAttribute>, collection_policiesAttribute { }
-export interface collection_policiesModel extends Sequelize.Model<collection_policiesInstance, collection_policiesAttribute> { }
-
-// table: company_intercom_data
-export interface company_intercom_dataAttribute {
-  company_id:number;
-  sinresgistro_bit:number;
-  clientes_sasignar:number;
-  edo_cuenta:number;
-  plantillas:number;
-  prom_pago:number;
-  reglas:number;
-  cred_prom:number;
-  pago_prom:number;
-  rel_fac_edo:number;
-  pagos_aplicados:number;
-  rel_cred_pago:number;
-}
-export interface company_intercom_dataInstance extends Sequelize.Instance<company_intercom_dataAttribute>, company_intercom_dataAttribute { }
-export interface company_intercom_dataModel extends Sequelize.Model<company_intercom_dataInstance, company_intercom_dataAttribute> { }
-
-// table: company_payments
-export interface company_paymentsAttribute {
-  company_id?:number;
-  payments_applied:number;
-}
-export interface company_paymentsInstance extends Sequelize.Instance<company_paymentsAttribute>, company_paymentsAttribute { }
-export interface company_paymentsModel extends Sequelize.Model<company_paymentsInstance, company_paymentsAttribute> { }
+export interface comercial_activitiesInstance extends Sequelize.Instance<comercial_activitiesAttribute>, comercial_activitiesAttribute { }
+export interface comercial_activitiesModel extends Sequelize.Model<comercial_activitiesInstance, comercial_activitiesAttribute> { }
 
 // table: companies
 export interface companiesAttribute {
@@ -120,6 +89,7 @@ export interface companiesAttribute {
   erp_id?:number;
   trade_name:string;
   rfc:string;
+  password?:string;
   ciec:string;
   firstLoad:number;
   is_demo:number;
@@ -155,6 +125,7 @@ export interface companiesAttribute {
   deleted_at?:Date;
   id_paybook_user:string;
   sync_sat:number;
+  satsync_account_id?:number;
   id_paybook_credential:string;
   is_bank_sync_enabled:number;
   economic_sector_id?:number;
@@ -165,20 +136,46 @@ export interface companiesAttribute {
   documents_logo?:string;
   importation_date?:Date;
   interest_percent:number;
+  is_automatic_rep:number;
 }
 export interface companiesInstance extends Sequelize.Instance<companiesAttribute>, companiesAttribute { }
 export interface companiesModel extends Sequelize.Model<companiesInstance, companiesAttribute> { }
 
-// table: contact_email
-export interface contact_emailAttribute {
+// table: company_intercom_data
+export interface company_intercom_dataAttribute {
+  company_id:number;
+  sinresgistro_bit:number;
+  clientes_sasignar:number;
+  edo_cuenta:number;
+  plantillas:number;
+  prom_pago:number;
+  reglas:number;
+  cred_prom:number;
+  pago_prom:number;
+  rel_fac_edo:number;
+  pagos_aplicados:number;
+  rel_cred_pago:number;
+}
+export interface company_intercom_dataInstance extends Sequelize.Instance<company_intercom_dataAttribute>, company_intercom_dataAttribute { }
+export interface company_intercom_dataModel extends Sequelize.Model<company_intercom_dataInstance, company_intercom_dataAttribute> { }
+
+// table: collection_policies
+export interface collection_policiesAttribute {
   id:number;
-  contact_id:number;
-  email:string;
+  receivable_id:number;
+  payment:number;
+  number_payments:number;
+  date:Date;
+  amount:any;
+  days:string;
+  credit_days:number;
+  status:number;
+  deleted_at?:Date;
   created_at:Date;
   updated_at:Date;
 }
-export interface contact_emailInstance extends Sequelize.Instance<contact_emailAttribute>, contact_emailAttribute { }
-export interface contact_emailModel extends Sequelize.Model<contact_emailInstance, contact_emailAttribute> { }
+export interface collection_policiesInstance extends Sequelize.Instance<collection_policiesAttribute>, collection_policiesAttribute { }
+export interface collection_policiesModel extends Sequelize.Model<collection_policiesInstance, collection_policiesAttribute> { }
 
 // table: company_site
 export interface company_siteAttribute {
@@ -205,18 +202,37 @@ export interface company_userAttribute {
 export interface company_userInstance extends Sequelize.Instance<company_userAttribute>, company_userAttribute { }
 export interface company_userModel extends Sequelize.Model<company_userInstance, company_userAttribute> { }
 
-// table: contpaqi_license_config_log
-export interface contpaqi_license_config_logAttribute {
+// table: conflict_documents
+export interface conflict_documentsAttribute {
   id:number;
-  user_id:number;
   company_id:number;
-  licenses_contpaqi_id:number;
-  sync_enabled:number;
-  created_at:Date;
-  updated_at:Date;
+  certificate_number:string;
+  document_type:number;
+  document_data?:string;
+  document_id?:number;
+  folio:string;
+  series:string;
+  date:Date;
+  total:number;
+  currency:string;
+  customer_id?:number;
+  customer_rfc:string;
+  customer_name:string;
+  user_id?:number;
+  created_at?:Date;
+  updated_at?:Date;
+  deleted_at?:Date;
 }
-export interface contpaqi_license_config_logInstance extends Sequelize.Instance<contpaqi_license_config_logAttribute>, contpaqi_license_config_logAttribute { }
-export interface contpaqi_license_config_logModel extends Sequelize.Model<contpaqi_license_config_logInstance, contpaqi_license_config_logAttribute> { }
+export interface conflict_documentsInstance extends Sequelize.Instance<conflict_documentsAttribute>, conflict_documentsAttribute { }
+export interface conflict_documentsModel extends Sequelize.Model<conflict_documentsInstance, conflict_documentsAttribute> { }
+
+// table: company_payments
+export interface company_paymentsAttribute {
+  company_id?:number;
+  payments_applied:number;
+}
+export interface company_paymentsInstance extends Sequelize.Instance<company_paymentsAttribute>, company_paymentsAttribute { }
+export interface company_paymentsModel extends Sequelize.Model<company_paymentsInstance, company_paymentsAttribute> { }
 
 // table: contact_phone
 export interface contact_phoneAttribute {
@@ -246,6 +262,38 @@ export interface contactsAttribute {
 }
 export interface contactsInstance extends Sequelize.Instance<contactsAttribute>, contactsAttribute { }
 export interface contactsModel extends Sequelize.Model<contactsInstance, contactsAttribute> { }
+
+// table: contpaqi_license_config_log
+export interface contpaqi_license_config_logAttribute {
+  id:number;
+  user_id:number;
+  company_id:number;
+  licenses_contpaqi_id:number;
+  sync_enabled:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface contpaqi_license_config_logInstance extends Sequelize.Instance<contpaqi_license_config_logAttribute>, contpaqi_license_config_logAttribute { }
+export interface contpaqi_license_config_logModel extends Sequelize.Model<contpaqi_license_config_logInstance, contpaqi_license_config_logAttribute> { }
+
+// table: contact_email
+export interface contact_emailAttribute {
+  id:number;
+  contact_id:number;
+  email:string;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface contact_emailInstance extends Sequelize.Instance<contact_emailAttribute>, contact_emailAttribute { }
+export interface contact_emailModel extends Sequelize.Model<contact_emailInstance, contact_emailAttribute> { }
+
+// table: credit_days
+export interface credit_daysAttribute {
+  company_id:number;
+  creditDays:number;
+}
+export interface credit_daysInstance extends Sequelize.Instance<credit_daysAttribute>, credit_daysAttribute { }
+export interface credit_daysModel extends Sequelize.Model<credit_daysInstance, credit_daysAttribute> { }
 
 // table: credit_notes
 export interface credit_notesAttribute {
@@ -285,14 +333,6 @@ export interface contractsAttribute {
 }
 export interface contractsInstance extends Sequelize.Instance<contractsAttribute>, contractsAttribute { }
 export interface contractsModel extends Sequelize.Model<contractsInstance, contractsAttribute> { }
-
-// table: credit_days
-export interface credit_daysAttribute {
-  company_id:number;
-  creditDays:number;
-}
-export interface credit_daysInstance extends Sequelize.Instance<credit_daysAttribute>, credit_daysAttribute { }
-export interface credit_daysModel extends Sequelize.Model<credit_daysInstance, credit_daysAttribute> { }
 
 // table: credit_report_addresses
 export interface credit_report_addressesAttribute {
@@ -544,18 +584,6 @@ export interface cuenta_clabe_controlAttribute {
 export interface cuenta_clabe_controlInstance extends Sequelize.Instance<cuenta_clabe_controlAttribute>, cuenta_clabe_controlAttribute { }
 export interface cuenta_clabe_controlModel extends Sequelize.Model<cuenta_clabe_controlInstance, cuenta_clabe_controlAttribute> { }
 
-// table: currencies
-export interface currenciesAttribute {
-  id:number;
-  currency_code:string;
-  currency_name:string;
-  decimals:number;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface currenciesInstance extends Sequelize.Instance<currenciesAttribute>, currenciesAttribute { }
-export interface currenciesModel extends Sequelize.Model<currenciesInstance, currenciesAttribute> { }
-
 // table: credit_report_shareholders
 export interface credit_report_shareholdersAttribute {
   id:number;
@@ -643,16 +671,17 @@ export interface customersAttribute {
 export interface customersInstance extends Sequelize.Instance<customersAttribute>, customersAttribute { }
 export interface customersModel extends Sequelize.Model<customersInstance, customersAttribute> { }
 
-// table: customers_pending_balance
-export interface customers_pending_balanceAttribute {
-  customer_id:number;
-  total_pending_balance?:number;
-  receivables_count:number;
-  expired:number;
-  status:number;
+// table: currencies
+export interface currenciesAttribute {
+  id:number;
+  currency_code:string;
+  currency_name:string;
+  decimals:number;
+  created_at:Date;
+  updated_at:Date;
 }
-export interface customers_pending_balanceInstance extends Sequelize.Instance<customers_pending_balanceAttribute>, customers_pending_balanceAttribute { }
-export interface customers_pending_balanceModel extends Sequelize.Model<customers_pending_balanceInstance, customers_pending_balanceAttribute> { }
+export interface currenciesInstance extends Sequelize.Instance<currenciesAttribute>, currenciesAttribute { }
+export interface currenciesModel extends Sequelize.Model<currenciesInstance, currenciesAttribute> { }
 
 // table: customer_invites
 export interface customer_invitesAttribute {
@@ -671,6 +700,25 @@ export interface customer_invitesAttribute {
 export interface customer_invitesInstance extends Sequelize.Instance<customer_invitesAttribute>, customer_invitesAttribute { }
 export interface customer_invitesModel extends Sequelize.Model<customer_invitesInstance, customer_invitesAttribute> { }
 
+// table: customers_without_logbook
+export interface customers_without_logbookAttribute {
+  company_id:number;
+  customers:number;
+}
+export interface customers_without_logbookInstance extends Sequelize.Instance<customers_without_logbookAttribute>, customers_without_logbookAttribute { }
+export interface customers_without_logbookModel extends Sequelize.Model<customers_without_logbookInstance, customers_without_logbookAttribute> { }
+
+// table: customers_pending_balance
+export interface customers_pending_balanceAttribute {
+  customer_id:number;
+  total_pending_balance?:number;
+  receivables_count:number;
+  expired:number;
+  status:number;
+}
+export interface customers_pending_balanceInstance extends Sequelize.Instance<customers_pending_balanceAttribute>, customers_pending_balanceAttribute { }
+export interface customers_pending_balanceModel extends Sequelize.Model<customers_pending_balanceInstance, customers_pending_balanceAttribute> { }
+
 // table: customers_unassigned
 export interface customers_unassignedAttribute {
   company_id:number;
@@ -679,13 +727,49 @@ export interface customers_unassignedAttribute {
 export interface customers_unassignedInstance extends Sequelize.Instance<customers_unassignedAttribute>, customers_unassignedAttribute { }
 export interface customers_unassignedModel extends Sequelize.Model<customers_unassignedInstance, customers_unassignedAttribute> { }
 
-// table: customers_without_logbook
-export interface customers_without_logbookAttribute {
-  company_id:number;
-  customers:number;
+// table: distributor_levels
+export interface distributor_levelsAttribute {
+  id:number;
+  name:string;
+  created_at:Date;
+  updated_at:Date;
 }
-export interface customers_without_logbookInstance extends Sequelize.Instance<customers_without_logbookAttribute>, customers_without_logbookAttribute { }
-export interface customers_without_logbookModel extends Sequelize.Model<customers_without_logbookInstance, customers_without_logbookAttribute> { }
+export interface distributor_levelsInstance extends Sequelize.Instance<distributor_levelsAttribute>, distributor_levelsAttribute { }
+export interface distributor_levelsModel extends Sequelize.Model<distributor_levelsInstance, distributor_levelsAttribute> { }
+
+// table: distributors
+export interface distributorsAttribute {
+  id:number;
+  name:string;
+  code:string;
+  created_at:Date;
+  updated_at:Date;
+  user_id?:number;
+  parent_id?:number;
+  rfc?:string;
+  business_name?:string;
+  is_active:number;
+  distributor_level_id?:number;
+}
+export interface distributorsInstance extends Sequelize.Instance<distributorsAttribute>, distributorsAttribute { }
+export interface distributorsModel extends Sequelize.Model<distributorsInstance, distributorsAttribute> { }
+
+// table: discounts
+export interface discountsAttribute {
+  id:number;
+  user_id:number;
+  receivable_id:number;
+  percent:any;
+  comment:string;
+  expiration_date:Date;
+  realized:number;
+  amount:any;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
+}
+export interface discountsInstance extends Sequelize.Instance<discountsAttribute>, discountsAttribute { }
+export interface discountsModel extends Sequelize.Model<discountsInstance, discountsAttribute> { }
 
 // table: dispersion_orders
 export interface dispersion_ordersAttribute {
@@ -706,33 +790,6 @@ export interface dispersion_ordersAttribute {
 export interface dispersion_ordersInstance extends Sequelize.Instance<dispersion_ordersAttribute>, dispersion_ordersAttribute { }
 export interface dispersion_ordersModel extends Sequelize.Model<dispersion_ordersInstance, dispersion_ordersAttribute> { }
 
-// table: discounts
-export interface discountsAttribute {
-  id:number;
-  user_id:number;
-  receivable_id:number;
-  percent:any;
-  comment:string;
-  expiration_date:Date;
-  realized:number;
-  amount:any;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
-}
-export interface discountsInstance extends Sequelize.Instance<discountsAttribute>, discountsAttribute { }
-export interface discountsModel extends Sequelize.Model<discountsInstance, discountsAttribute> { }
-
-// table: distributor_levels
-export interface distributor_levelsAttribute {
-  id:number;
-  name:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface distributor_levelsInstance extends Sequelize.Instance<distributor_levelsAttribute>, distributor_levelsAttribute { }
-export interface distributor_levelsModel extends Sequelize.Model<distributor_levelsInstance, distributor_levelsAttribute> { }
-
 // table: erps
 export interface erpsAttribute {
   id:number;
@@ -743,45 +800,6 @@ export interface erpsAttribute {
 }
 export interface erpsInstance extends Sequelize.Instance<erpsAttribute>, erpsAttribute { }
 export interface erpsModel extends Sequelize.Model<erpsInstance, erpsAttribute> { }
-
-// table: economic_sectors
-export interface economic_sectorsAttribute {
-  id:number;
-  name:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface economic_sectorsInstance extends Sequelize.Instance<economic_sectorsAttribute>, economic_sectorsAttribute { }
-export interface economic_sectorsModel extends Sequelize.Model<economic_sectorsInstance, economic_sectorsAttribute> { }
-
-// table: distributors
-export interface distributorsAttribute {
-  id:number;
-  name:string;
-  code:string;
-  created_at:Date;
-  updated_at:Date;
-  user_id?:number;
-  parent_id?:number;
-  rfc?:string;
-  business_name?:string;
-  is_active:number;
-  distributor_level_id?:number;
-}
-export interface distributorsInstance extends Sequelize.Instance<distributorsAttribute>, distributorsAttribute { }
-export interface distributorsModel extends Sequelize.Model<distributorsInstance, distributorsAttribute> { }
-
-// table: historial_deuda_comentarios
-export interface historial_deuda_comentariosAttribute {
-  id:number;
-  user_id:number;
-  collection_policies_id:number;
-  comment:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface historial_deuda_comentariosInstance extends Sequelize.Instance<historial_deuda_comentariosAttribute>, historial_deuda_comentariosAttribute { }
-export interface historial_deuda_comentariosModel extends Sequelize.Model<historial_deuda_comentariosInstance, historial_deuda_comentariosAttribute> { }
 
 // table: extensions
 export interface extensionsAttribute {
@@ -810,23 +828,15 @@ export interface failed_jobsAttribute {
 export interface failed_jobsInstance extends Sequelize.Instance<failed_jobsAttribute>, failed_jobsAttribute { }
 export interface failed_jobsModel extends Sequelize.Model<failed_jobsInstance, failed_jobsAttribute> { }
 
-// table: import_data_service_logs
-export interface import_data_service_logsAttribute {
+// table: economic_sectors
+export interface economic_sectorsAttribute {
   id:number;
-  company_id:number;
-  clients?:number;
-  receivables?:number;
-  imported_payments?:number;
-  billed_payments?:number;
-  canceled_payments?:number;
-  credit_notes?:number;
-  exported_payments?:number;
-  payments_with_errors?:number;
+  name:string;
   created_at:Date;
   updated_at:Date;
 }
-export interface import_data_service_logsInstance extends Sequelize.Instance<import_data_service_logsAttribute>, import_data_service_logsAttribute { }
-export interface import_data_service_logsModel extends Sequelize.Model<import_data_service_logsInstance, import_data_service_logsAttribute> { }
+export interface economic_sectorsInstance extends Sequelize.Instance<economic_sectorsAttribute>, economic_sectorsAttribute { }
+export interface economic_sectorsModel extends Sequelize.Model<economic_sectorsInstance, economic_sectorsAttribute> { }
 
 // table: history_assignments
 export interface history_assignmentsAttribute {
@@ -853,26 +863,36 @@ export interface history_invoicesAttribute {
 export interface history_invoicesInstance extends Sequelize.Instance<history_invoicesAttribute>, history_invoicesAttribute { }
 export interface history_invoicesModel extends Sequelize.Model<history_invoicesInstance, history_invoicesAttribute> { }
 
-// table: invoice_json
-export interface invoice_jsonAttribute {
+// table: import_data_service_logs
+export interface import_data_service_logsAttribute {
   id:number;
-  data:string;
-  receivable_id:number;
+  company_id:number;
+  clients?:number;
+  receivables?:number;
+  imported_payments?:number;
+  billed_payments?:number;
+  canceled_payments?:number;
+  credit_notes?:number;
+  exported_payments?:number;
+  payments_with_errors?:number;
+  import_source:number;
   created_at:Date;
   updated_at:Date;
 }
-export interface invoice_jsonInstance extends Sequelize.Instance<invoice_jsonAttribute>, invoice_jsonAttribute { }
-export interface invoice_jsonModel extends Sequelize.Model<invoice_jsonInstance, invoice_jsonAttribute> { }
+export interface import_data_service_logsInstance extends Sequelize.Instance<import_data_service_logsAttribute>, import_data_service_logsAttribute { }
+export interface import_data_service_logsModel extends Sequelize.Model<import_data_service_logsInstance, import_data_service_logsAttribute> { }
 
-// table: incidence_reasons
-export interface incidence_reasonsAttribute {
+// table: historial_deuda_comentarios
+export interface historial_deuda_comentariosAttribute {
   id:number;
-  reason:string;
+  user_id:number;
+  collection_policies_id:number;
+  comment:string;
   created_at:Date;
   updated_at:Date;
 }
-export interface incidence_reasonsInstance extends Sequelize.Instance<incidence_reasonsAttribute>, incidence_reasonsAttribute { }
-export interface incidence_reasonsModel extends Sequelize.Model<incidence_reasonsInstance, incidence_reasonsAttribute> { }
+export interface historial_deuda_comentariosInstance extends Sequelize.Instance<historial_deuda_comentariosAttribute>, historial_deuda_comentariosAttribute { }
+export interface historial_deuda_comentariosModel extends Sequelize.Model<historial_deuda_comentariosInstance, historial_deuda_comentariosAttribute> { }
 
 // table: incidences
 export interface incidencesAttribute {
@@ -892,6 +912,41 @@ export interface incidencesAttribute {
 }
 export interface incidencesInstance extends Sequelize.Instance<incidencesAttribute>, incidencesAttribute { }
 export interface incidencesModel extends Sequelize.Model<incidencesInstance, incidencesAttribute> { }
+
+// table: invoice_json
+export interface invoice_jsonAttribute {
+  id:number;
+  data:string;
+  receivable_id:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface invoice_jsonInstance extends Sequelize.Instance<invoice_jsonAttribute>, invoice_jsonAttribute { }
+export interface invoice_jsonModel extends Sequelize.Model<invoice_jsonInstance, invoice_jsonAttribute> { }
+
+// table: jobs
+export interface jobsAttribute {
+  id:number;
+  queue:string;
+  payload:string;
+  attempts:number;
+  reserved?:number;
+  reserved_at?:number;
+  available_at:number;
+  created_at:number;
+}
+export interface jobsInstance extends Sequelize.Instance<jobsAttribute>, jobsAttribute { }
+export interface jobsModel extends Sequelize.Model<jobsInstance, jobsAttribute> { }
+
+// table: incidence_reasons
+export interface incidence_reasonsAttribute {
+  id:number;
+  reason:string;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface incidence_reasonsInstance extends Sequelize.Instance<incidence_reasonsAttribute>, incidence_reasonsAttribute { }
+export interface incidence_reasonsModel extends Sequelize.Model<incidence_reasonsInstance, incidence_reasonsAttribute> { }
 
 // table: licences
 export interface licencesAttribute {
@@ -919,19 +974,20 @@ export interface licencesAttribute {
 export interface licencesInstance extends Sequelize.Instance<licencesAttribute>, licencesAttribute { }
 export interface licencesModel extends Sequelize.Model<licencesInstance, licencesAttribute> { }
 
-// table: jobs
-export interface jobsAttribute {
+// table: license_payments
+export interface license_paymentsAttribute {
   id:number;
-  queue:string;
-  payload:string;
-  attempts:number;
-  reserved?:number;
-  reserved_at?:number;
-  available_at:number;
-  created_at:number;
+  user_id:number;
+  licence_id:number;
+  date:Date;
+  description:string;
+  amount:number;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
 }
-export interface jobsInstance extends Sequelize.Instance<jobsAttribute>, jobsAttribute { }
-export interface jobsModel extends Sequelize.Model<jobsInstance, jobsAttribute> { }
+export interface license_paymentsInstance extends Sequelize.Instance<license_paymentsAttribute>, license_paymentsAttribute { }
+export interface license_paymentsModel extends Sequelize.Model<license_paymentsInstance, license_paymentsAttribute> { }
 
 // table: licence_renewals
 export interface licence_renewalsAttribute {
@@ -959,60 +1015,6 @@ export interface licence_renewalsAttribute {
 export interface licence_renewalsInstance extends Sequelize.Instance<licence_renewalsAttribute>, licence_renewalsAttribute { }
 export interface licence_renewalsModel extends Sequelize.Model<licence_renewalsInstance, licence_renewalsAttribute> { }
 
-// table: licenses_feraz
-export interface licenses_ferazAttribute {
-  id:number;
-  company_id:number;
-  company:string;
-  user:string;
-  password:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface licenses_ferazInstance extends Sequelize.Instance<licenses_ferazAttribute>, licenses_ferazAttribute { }
-export interface licenses_ferazModel extends Sequelize.Model<licenses_ferazInstance, licenses_ferazAttribute> { }
-
-// table: license_payments
-export interface license_paymentsAttribute {
-  id:number;
-  user_id:number;
-  licence_id:number;
-  date:Date;
-  description:string;
-  amount:number;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
-}
-export interface license_paymentsInstance extends Sequelize.Instance<license_paymentsAttribute>, license_paymentsAttribute { }
-export interface license_paymentsModel extends Sequelize.Model<license_paymentsInstance, license_paymentsAttribute> { }
-
-// table: licenses_contpaqi
-export interface licenses_contpaqiAttribute {
-  id:number;
-  company_id:number;
-  license:string;
-  user:string;
-  password:string;
-  created_at:Date;
-  sync_end?:Date;
-  sync_start?:Date;
-  updated_at:Date;
-  in_progress:number;
-  sync:number;
-  sync_enabled:number;
-}
-export interface licenses_contpaqiInstance extends Sequelize.Instance<licenses_contpaqiAttribute>, licenses_contpaqiAttribute { }
-export interface licenses_contpaqiModel extends Sequelize.Model<licenses_contpaqiInstance, licenses_contpaqiAttribute> { }
-
-// table: migrations
-export interface migrationsAttribute {
-  migration:string;
-  batch:number;
-}
-export interface migrationsInstance extends Sequelize.Instance<migrationsAttribute>, migrationsAttribute { }
-export interface migrationsModel extends Sequelize.Model<migrationsInstance, migrationsAttribute> { }
-
 // table: logbook
 export interface logbookAttribute {
   id:number;
@@ -1032,17 +1034,52 @@ export interface logbookAttribute {
 export interface logbookInstance extends Sequelize.Instance<logbookAttribute>, logbookAttribute { }
 export interface logbookModel extends Sequelize.Model<logbookInstance, logbookAttribute> { }
 
-// table: logbook_payment
-export interface logbook_paymentAttribute {
+// table: licenses_contpaqi
+export interface licenses_contpaqiAttribute {
   id:number;
-  payment_id:number;
-  action:string;
-  success:number;
+  company_id:number;
+  license:string;
+  user:string;
+  password:string;
+  created_at:Date;
+  sync_end?:Date;
+  sync_start?:Date;
+  updated_at:Date;
+  in_progress:number;
+  sync:number;
+  sync_enabled:number;
+}
+export interface licenses_contpaqiInstance extends Sequelize.Instance<licenses_contpaqiAttribute>, licenses_contpaqiAttribute { }
+export interface licenses_contpaqiModel extends Sequelize.Model<licenses_contpaqiInstance, licenses_contpaqiAttribute> { }
+
+// table: licenses_feraz
+export interface licenses_ferazAttribute {
+  id:number;
+  company_id:number;
+  company:string;
+  user:string;
+  password:string;
   created_at:Date;
   updated_at:Date;
 }
-export interface logbook_paymentInstance extends Sequelize.Instance<logbook_paymentAttribute>, logbook_paymentAttribute { }
-export interface logbook_paymentModel extends Sequelize.Model<logbook_paymentInstance, logbook_paymentAttribute> { }
+export interface licenses_ferazInstance extends Sequelize.Instance<licenses_ferazAttribute>, licenses_ferazAttribute { }
+export interface licenses_ferazModel extends Sequelize.Model<licenses_ferazInstance, licenses_ferazAttribute> { }
+
+// table: notification_rules
+export interface notification_rulesAttribute {
+  company_id:number;
+  reglas:number;
+}
+export interface notification_rulesInstance extends Sequelize.Instance<notification_rulesAttribute>, notification_rulesAttribute { }
+export interface notification_rulesModel extends Sequelize.Model<notification_rulesInstance, notification_rulesAttribute> { }
+
+// table: notification_templates
+export interface notification_templatesAttribute {
+  company_id?:number;
+  templates:number;
+}
+export interface notification_templatesInstance extends Sequelize.Instance<notification_templatesAttribute>, notification_templatesAttribute { }
+export interface notification_templatesModel extends Sequelize.Model<notification_templatesInstance, notification_templatesAttribute> { }
 
 // table: notifications
 export interface notificationsAttribute {
@@ -1071,21 +1108,62 @@ export interface notificationsAttribute {
 export interface notificationsInstance extends Sequelize.Instance<notificationsAttribute>, notificationsAttribute { }
 export interface notificationsModel extends Sequelize.Model<notificationsInstance, notificationsAttribute> { }
 
-// table: notification_rules
-export interface notification_rulesAttribute {
-  company_id:number;
-  reglas:number;
+// table: logbook_payment
+export interface logbook_paymentAttribute {
+  id:number;
+  payment_id:number;
+  action:string;
+  success:number;
+  created_at:Date;
+  updated_at:Date;
 }
-export interface notification_rulesInstance extends Sequelize.Instance<notification_rulesAttribute>, notification_rulesAttribute { }
-export interface notification_rulesModel extends Sequelize.Model<notification_rulesInstance, notification_rulesAttribute> { }
+export interface logbook_paymentInstance extends Sequelize.Instance<logbook_paymentAttribute>, logbook_paymentAttribute { }
+export interface logbook_paymentModel extends Sequelize.Model<logbook_paymentInstance, logbook_paymentAttribute> { }
 
-// table: notification_templates
-export interface notification_templatesAttribute {
-  company_id?:number;
-  templates:number;
+// table: migrations
+export interface migrationsAttribute {
+  migration:string;
+  batch:number;
 }
-export interface notification_templatesInstance extends Sequelize.Instance<notification_templatesAttribute>, notification_templatesAttribute { }
-export interface notification_templatesModel extends Sequelize.Model<notification_templatesInstance, notification_templatesAttribute> { }
+export interface migrationsInstance extends Sequelize.Instance<migrationsAttribute>, migrationsAttribute { }
+export interface migrationsModel extends Sequelize.Model<migrationsInstance, migrationsAttribute> { }
+
+// table: notifications_config
+export interface notifications_configAttribute {
+  id:number;
+  title:string;
+  body:string;
+  config_types:number;
+  config_days:number;
+  include_files:number;
+  type:number;
+  status:number;
+  last_send_at?:Date;
+  counter_email_open:number;
+  date_email_open?:Date;
+  company_id:number;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
+  recipient_type:number;
+  account_status:number;
+  config_day_month?:number;
+  last_day_month?:number;
+  user_id?:number;
+}
+export interface notifications_configInstance extends Sequelize.Instance<notifications_configAttribute>, notifications_configAttribute { }
+export interface notifications_configModel extends Sequelize.Model<notifications_configInstance, notifications_configAttribute> { }
+
+// table: notifications_customers
+export interface notifications_customersAttribute {
+  id:number;
+  customer_id:number;
+  notifications_config_id:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface notifications_customersInstance extends Sequelize.Instance<notifications_customersAttribute>, notifications_customersAttribute { }
+export interface notifications_customersModel extends Sequelize.Model<notifications_customersInstance, notifications_customersAttribute> { }
 
 // table: notifications_sms
 export interface notifications_smsAttribute {
@@ -1125,43 +1203,6 @@ export interface notifications_templatesAttribute {
 export interface notifications_templatesInstance extends Sequelize.Instance<notifications_templatesAttribute>, notifications_templatesAttribute { }
 export interface notifications_templatesModel extends Sequelize.Model<notifications_templatesInstance, notifications_templatesAttribute> { }
 
-// table: notifications_config
-export interface notifications_configAttribute {
-  id:number;
-  title:string;
-  body:string;
-  config_types:number;
-  config_days:number;
-  include_files:number;
-  type:number;
-  status:number;
-  last_send_at?:Date;
-  counter_email_open:number;
-  date_email_open?:Date;
-  company_id:number;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
-  recipient_type:number;
-  account_status:number;
-  config_day_month?:number;
-  last_day_month?:number;
-  user_id?:number;
-}
-export interface notifications_configInstance extends Sequelize.Instance<notifications_configAttribute>, notifications_configAttribute { }
-export interface notifications_configModel extends Sequelize.Model<notifications_configInstance, notifications_configAttribute> { }
-
-// table: notifications_customers
-export interface notifications_customersAttribute {
-  id:number;
-  customer_id:number;
-  notifications_config_id:number;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface notifications_customersInstance extends Sequelize.Instance<notifications_customersAttribute>, notifications_customersAttribute { }
-export interface notifications_customersModel extends Sequelize.Model<notifications_customersInstance, notifications_customersAttribute> { }
-
 // table: oauth_auth_codes
 export interface oauth_auth_codesAttribute {
   id:string;
@@ -1190,6 +1231,16 @@ export interface oauth_clientsAttribute {
 export interface oauth_clientsInstance extends Sequelize.Instance<oauth_clientsAttribute>, oauth_clientsAttribute { }
 export interface oauth_clientsModel extends Sequelize.Model<oauth_clientsInstance, oauth_clientsAttribute> { }
 
+// table: oauth_personal_access_clients
+export interface oauth_personal_access_clientsAttribute {
+  id:number;
+  client_id:number;
+  created_at?:Date;
+  updated_at?:Date;
+}
+export interface oauth_personal_access_clientsInstance extends Sequelize.Instance<oauth_personal_access_clientsAttribute>, oauth_personal_access_clientsAttribute { }
+export interface oauth_personal_access_clientsModel extends Sequelize.Model<oauth_personal_access_clientsInstance, oauth_personal_access_clientsAttribute> { }
+
 // table: oauth_access_tokens
 export interface oauth_access_tokensAttribute {
   id:string;
@@ -1213,48 +1264,6 @@ export interface password_resetsAttribute {
 }
 export interface password_resetsInstance extends Sequelize.Instance<password_resetsAttribute>, password_resetsAttribute { }
 export interface password_resetsModel extends Sequelize.Model<password_resetsInstance, password_resetsAttribute> { }
-
-// table: oauth_personal_access_clients
-export interface oauth_personal_access_clientsAttribute {
-  id:number;
-  client_id:number;
-  created_at?:Date;
-  updated_at?:Date;
-}
-export interface oauth_personal_access_clientsInstance extends Sequelize.Instance<oauth_personal_access_clientsAttribute>, oauth_personal_access_clientsAttribute { }
-export interface oauth_personal_access_clientsModel extends Sequelize.Model<oauth_personal_access_clientsInstance, oauth_personal_access_clientsAttribute> { }
-
-// table: oauth_refresh_tokens
-export interface oauth_refresh_tokensAttribute {
-  id:string;
-  access_token_id:string;
-  revoked:number;
-  expires_at?:Date;
-}
-export interface oauth_refresh_tokensInstance extends Sequelize.Instance<oauth_refresh_tokensAttribute>, oauth_refresh_tokensAttribute { }
-export interface oauth_refresh_tokensModel extends Sequelize.Model<oauth_refresh_tokensInstance, oauth_refresh_tokensAttribute> { }
-
-// table: payment_formats
-export interface payment_formatsAttribute {
-  id:number;
-  clave:string;
-  description:string;
-  banker:number;
-  operation_number:number;
-  rfc_account_issuer:number;
-  account_issuer:number;
-  pattern_issuer:string;
-  rfc_issuer:number;
-  account_beneficiary:number;
-  pattern_beneficiary:string;
-  type_payment:number;
-  bank_issuer:string;
-  effective_date:Date;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface payment_formatsInstance extends Sequelize.Instance<payment_formatsAttribute>, payment_formatsAttribute { }
-export interface payment_formatsModel extends Sequelize.Model<payment_formatsInstance, payment_formatsAttribute> { }
 
 // table: pay_days
 export interface pay_daysAttribute {
@@ -1280,22 +1289,15 @@ export interface payment_conceptsAttribute {
 export interface payment_conceptsInstance extends Sequelize.Instance<payment_conceptsAttribute>, payment_conceptsAttribute { }
 export interface payment_conceptsModel extends Sequelize.Model<payment_conceptsInstance, payment_conceptsAttribute> { }
 
-// table: payment_promise
-export interface payment_promiseAttribute {
-  id:number;
-  user_id:number;
-  customer_id:number;
-  receivable_id?:number;
-  date:Date;
-  amount:any;
-  status:number;
-  reason:string;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
+// table: oauth_refresh_tokens
+export interface oauth_refresh_tokensAttribute {
+  id:string;
+  access_token_id:string;
+  revoked:number;
+  expires_at?:Date;
 }
-export interface payment_promiseInstance extends Sequelize.Instance<payment_promiseAttribute>, payment_promiseAttribute { }
-export interface payment_promiseModel extends Sequelize.Model<payment_promiseInstance, payment_promiseAttribute> { }
+export interface oauth_refresh_tokensInstance extends Sequelize.Instance<oauth_refresh_tokensAttribute>, oauth_refresh_tokensAttribute { }
+export interface oauth_refresh_tokensModel extends Sequelize.Model<oauth_refresh_tokensInstance, oauth_refresh_tokensAttribute> { }
 
 // table: payment_methods
 export interface payment_methodsAttribute {
@@ -1320,6 +1322,61 @@ export interface payment_periodsAttribute {
 }
 export interface payment_periodsInstance extends Sequelize.Instance<payment_periodsAttribute>, payment_periodsAttribute { }
 export interface payment_periodsModel extends Sequelize.Model<payment_periodsInstance, payment_periodsAttribute> { }
+
+// table: payment_promise
+export interface payment_promiseAttribute {
+  id:number;
+  user_id:number;
+  customer_id:number;
+  receivable_id?:number;
+  date:Date;
+  amount:any;
+  status:number;
+  reason:string;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
+}
+export interface payment_promiseInstance extends Sequelize.Instance<payment_promiseAttribute>, payment_promiseAttribute { }
+export interface payment_promiseModel extends Sequelize.Model<payment_promiseInstance, payment_promiseAttribute> { }
+
+// table: payment_formats
+export interface payment_formatsAttribute {
+  id:number;
+  clave:string;
+  description:string;
+  banker:number;
+  operation_number:number;
+  rfc_account_issuer:number;
+  account_issuer:number;
+  pattern_issuer:string;
+  rfc_issuer:number;
+  account_beneficiary:number;
+  pattern_beneficiary:string;
+  type_payment:number;
+  bank_issuer:string;
+  effective_date:Date;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface payment_formatsInstance extends Sequelize.Instance<payment_formatsAttribute>, payment_formatsAttribute { }
+export interface payment_formatsModel extends Sequelize.Model<payment_formatsInstance, payment_formatsAttribute> { }
+
+// table: payment_request_receivable
+export interface payment_request_receivableAttribute {
+  id:number;
+  payment_request_id:number;
+  receivable_id:number;
+  amount_without_convertion:any;
+  total:number;
+  currency:string;
+  exchange_rate:number;
+  deleted_at?:Date;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface payment_request_receivableInstance extends Sequelize.Instance<payment_request_receivableAttribute>, payment_request_receivableAttribute { }
+export interface payment_request_receivableModel extends Sequelize.Model<payment_request_receivableInstance, payment_request_receivableAttribute> { }
 
 // table: payments
 export interface paymentsAttribute {
@@ -1371,36 +1428,10 @@ export interface paymentsAttribute {
   avanttia_stamped:number;
   exported:number;
   voucher?:string;
+  stamp_tries:number;
 }
 export interface paymentsInstance extends Sequelize.Instance<paymentsAttribute>, paymentsAttribute { }
 export interface paymentsModel extends Sequelize.Model<paymentsInstance, paymentsAttribute> { }
-
-// table: payment_promise_receivables
-export interface payment_promise_receivablesAttribute {
-  id:number;
-  payment_promise_id:number;
-  receivable_id:number;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface payment_promise_receivablesInstance extends Sequelize.Instance<payment_promise_receivablesAttribute>, payment_promise_receivablesAttribute { }
-export interface payment_promise_receivablesModel extends Sequelize.Model<payment_promise_receivablesInstance, payment_promise_receivablesAttribute> { }
-
-// table: payment_request_receivable
-export interface payment_request_receivableAttribute {
-  id:number;
-  payment_request_id:number;
-  receivable_id:number;
-  amount_without_convertion:any;
-  total:number;
-  currency:string;
-  exchange_rate:number;
-  deleted_at?:Date;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface payment_request_receivableInstance extends Sequelize.Instance<payment_request_receivableAttribute>, payment_request_receivableAttribute { }
-export interface payment_request_receivableModel extends Sequelize.Model<payment_request_receivableInstance, payment_request_receivableAttribute> { }
 
 // table: payments_receivable
 export interface payments_receivableAttribute {
@@ -1422,6 +1453,65 @@ export interface payments_receivableAttribute {
 }
 export interface payments_receivableInstance extends Sequelize.Instance<payments_receivableAttribute>, payments_receivableAttribute { }
 export interface payments_receivableModel extends Sequelize.Model<payments_receivableInstance, payments_receivableAttribute> { }
+
+// table: payment_promise_receivables
+export interface payment_promise_receivablesAttribute {
+  id:number;
+  payment_promise_id:number;
+  receivable_id:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface payment_promise_receivablesInstance extends Sequelize.Instance<payment_promise_receivablesAttribute>, payment_promise_receivablesAttribute { }
+export interface payment_promise_receivablesModel extends Sequelize.Model<payment_promise_receivablesInstance, payment_promise_receivablesAttribute> { }
+
+// table: periods
+export interface periodsAttribute {
+  id:number;
+  company_id:number;
+  status:number;
+  open:number;
+  date?:Date;
+  last_update?:Date;
+  start?:Date;
+  end?:Date;
+  data:string;
+  data_status:string;
+  without_allocate:any;
+  recovery_total:any;
+  recovery_expired:any;
+  recovery_expired_last:any;
+  recovery_current:any;
+  recovery_goal:any;
+  recovery_portfolio:any;
+  previous?:number;
+  next?:number;
+  created_at:Date;
+  updated_at:Date;
+  deleted_at?:Date;
+}
+export interface periodsInstance extends Sequelize.Instance<periodsAttribute>, periodsAttribute { }
+export interface periodsModel extends Sequelize.Model<periodsInstance, periodsAttribute> { }
+
+// table: permission_role
+export interface permission_roleAttribute {
+  permission_id:number;
+  role_id:number;
+}
+export interface permission_roleInstance extends Sequelize.Instance<permission_roleAttribute>, permission_roleAttribute { }
+export interface permission_roleModel extends Sequelize.Model<permission_roleInstance, permission_roleAttribute> { }
+
+// table: permissions
+export interface permissionsAttribute {
+  id:number;
+  name:string;
+  display_name?:string;
+  description?:string;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface permissionsInstance extends Sequelize.Instance<permissionsAttribute>, permissionsAttribute { }
+export interface permissionsModel extends Sequelize.Model<permissionsInstance, permissionsAttribute> { }
 
 // table: payments_request
 export interface payments_requestAttribute {
@@ -1456,53 +1546,13 @@ export interface payments_requestAttribute {
 export interface payments_requestInstance extends Sequelize.Instance<payments_requestAttribute>, payments_requestAttribute { }
 export interface payments_requestModel extends Sequelize.Model<payments_requestInstance, payments_requestAttribute> { }
 
-// table: permission_role
-export interface permission_roleAttribute {
-  permission_id:number;
-  role_id:number;
-}
-export interface permission_roleInstance extends Sequelize.Instance<permission_roleAttribute>, permission_roleAttribute { }
-export interface permission_roleModel extends Sequelize.Model<permission_roleInstance, permission_roleAttribute> { }
-
-// table: periods
-export interface periodsAttribute {
-  id:number;
+// table: promises_payment
+export interface promises_paymentAttribute {
   company_id:number;
-  status:number;
-  open:number;
-  date?:Date;
-  last_update?:Date;
-  start?:Date;
-  end?:Date;
-  data:string;
-  data_status:string;
-  without_allocate:any;
-  recovery_total:any;
-  recovery_expired:any;
-  recovery_expired_last:any;
-  recovery_current:any;
-  recovery_goal:any;
-  recovery_portfolio:any;
-  previous?:number;
-  next?:number;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
+  payment_promises:number;
 }
-export interface periodsInstance extends Sequelize.Instance<periodsAttribute>, periodsAttribute { }
-export interface periodsModel extends Sequelize.Model<periodsInstance, periodsAttribute> { }
-
-// table: permissions
-export interface permissionsAttribute {
-  id:number;
-  name:string;
-  display_name?:string;
-  description?:string;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface permissionsInstance extends Sequelize.Instance<permissionsAttribute>, permissionsAttribute { }
-export interface permissionsModel extends Sequelize.Model<permissionsInstance, permissionsAttribute> { }
+export interface promises_paymentInstance extends Sequelize.Instance<promises_paymentAttribute>, promises_paymentAttribute { }
+export interface promises_paymentModel extends Sequelize.Model<promises_paymentInstance, promises_paymentAttribute> { }
 
 // table: receivables
 export interface receivablesAttribute {
@@ -1567,14 +1617,6 @@ export interface plansAttribute {
 }
 export interface plansInstance extends Sequelize.Instance<plansAttribute>, plansAttribute { }
 export interface plansModel extends Sequelize.Model<plansInstance, plansAttribute> { }
-
-// table: promises_payment
-export interface promises_paymentAttribute {
-  company_id:number;
-  payment_promises:number;
-}
-export interface promises_paymentInstance extends Sequelize.Instance<promises_paymentAttribute>, promises_paymentAttribute { }
-export interface promises_paymentModel extends Sequelize.Model<promises_paymentInstance, promises_paymentAttribute> { }
 
 // table: role_user
 export interface role_userAttribute {
@@ -1651,27 +1693,6 @@ export interface sync_logAttribute {
 export interface sync_logInstance extends Sequelize.Instance<sync_logAttribute>, sync_logAttribute { }
 export interface sync_logModel extends Sequelize.Model<sync_logInstance, sync_logAttribute> { }
 
-// table: transactions
-export interface transactionsAttribute {
-  id:number;
-  company_id:number;
-  account_id:number;
-  payment_id?:number;
-  paybook_transaction_id:string;
-  amount:number;
-  description?:string;
-  reference?:string;
-  date:Date;
-  status:number;
-  disable:number;
-  created_at:Date;
-  updated_at:Date;
-  deleted_at?:Date;
-  identified_by?:number;
-}
-export interface transactionsInstance extends Sequelize.Instance<transactionsAttribute>, transactionsAttribute { }
-export interface transactionsModel extends Sequelize.Model<transactionsInstance, transactionsAttribute> { }
-
 // table: sat_sync_webhook_log
 export interface sat_sync_webhook_logAttribute {
   id:number;
@@ -1707,16 +1728,26 @@ export interface user_notificationsAttribute {
 export interface user_notificationsInstance extends Sequelize.Instance<user_notificationsAttribute>, user_notificationsAttribute { }
 export interface user_notificationsModel extends Sequelize.Model<user_notificationsInstance, user_notificationsAttribute> { }
 
-// table: user_sync_log
-export interface user_sync_logAttribute {
+// table: transactions
+export interface transactionsAttribute {
   id:number;
-  user_id:number;
-  sync_operation?:number;
+  company_id:number;
+  account_id:number;
+  payment_id?:number;
+  paybook_transaction_id:string;
+  amount:number;
+  description?:string;
+  reference?:string;
+  date:Date;
+  status:number;
+  disable:number;
   created_at:Date;
   updated_at:Date;
+  deleted_at?:Date;
+  identified_by?:number;
 }
-export interface user_sync_logInstance extends Sequelize.Instance<user_sync_logAttribute>, user_sync_logAttribute { }
-export interface user_sync_logModel extends Sequelize.Model<user_sync_logInstance, user_sync_logAttribute> { }
+export interface transactionsInstance extends Sequelize.Instance<transactionsAttribute>, transactionsAttribute { }
+export interface transactionsModel extends Sequelize.Model<transactionsInstance, transactionsAttribute> { }
 
 // table: transactions_files
 export interface transactions_filesAttribute {
@@ -1733,22 +1764,6 @@ export interface transactions_filesAttribute {
 }
 export interface transactions_filesInstance extends Sequelize.Instance<transactions_filesAttribute>, transactions_filesAttribute { }
 export interface transactions_filesModel extends Sequelize.Model<transactions_filesInstance, transactions_filesAttribute> { }
-
-// table: user_sync_log_payments
-export interface user_sync_log_paymentsAttribute {
-  id:number;
-  user_sync_log_id:number;
-  payment_id:number;
-  sync_operation?:number;
-  sync_operation_date?:Date;
-  sync_operation_error?:number;
-  sync_operation_description?:string;
-  sync_operation_result?:number;
-  created_at:Date;
-  updated_at:Date;
-}
-export interface user_sync_log_paymentsInstance extends Sequelize.Instance<user_sync_log_paymentsAttribute>, user_sync_log_paymentsAttribute { }
-export interface user_sync_log_paymentsModel extends Sequelize.Model<user_sync_log_paymentsInstance, user_sync_log_paymentsAttribute> { }
 
 // table: users
 export interface usersAttribute {
@@ -1775,6 +1790,33 @@ export interface usersAttribute {
 }
 export interface usersInstance extends Sequelize.Instance<usersAttribute>, usersAttribute { }
 export interface usersModel extends Sequelize.Model<usersInstance, usersAttribute> { }
+
+// table: user_sync_log
+export interface user_sync_logAttribute {
+  id:number;
+  user_id:number;
+  sync_operation?:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface user_sync_logInstance extends Sequelize.Instance<user_sync_logAttribute>, user_sync_logAttribute { }
+export interface user_sync_logModel extends Sequelize.Model<user_sync_logInstance, user_sync_logAttribute> { }
+
+// table: user_sync_log_payments
+export interface user_sync_log_paymentsAttribute {
+  id:number;
+  user_sync_log_id:number;
+  payment_id:number;
+  sync_operation?:number;
+  sync_operation_date?:Date;
+  sync_operation_error?:number;
+  sync_operation_description?:string;
+  sync_operation_result?:number;
+  created_at:Date;
+  updated_at:Date;
+}
+export interface user_sync_log_paymentsInstance extends Sequelize.Instance<user_sync_log_paymentsAttribute>, user_sync_log_paymentsAttribute { }
+export interface user_sync_log_paymentsModel extends Sequelize.Model<user_sync_log_paymentsInstance, user_sync_log_paymentsAttribute> { }
 
 // table: webservices_log
 export interface webservices_logAttribute {
