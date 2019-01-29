@@ -24,6 +24,14 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    agent_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'agent_sales',
+        key: 'id'
+      }
+    },
     rfc: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -163,6 +171,10 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     },
     interest_percent: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
+    risk_score: {
       type: DataTypes.DECIMAL,
       allowNull: true
     }

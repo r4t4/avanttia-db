@@ -32,6 +32,11 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
+    licence_type: {
+      type: DataTypes.ENUM('Lite','Business','Corporate','Distribuidor'),
+      allowNull: false,
+      defaultValue: 'Lite'
+    },
     code: {
       type: DataTypes.STRING(255),
       allowNull: false

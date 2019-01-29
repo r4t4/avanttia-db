@@ -32,6 +32,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
+    tax_regime: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     rfc: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -237,10 +241,26 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0.00'
     },
+    formula_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'formulas',
+        key: 'id'
+      }
+    },
     is_automatic_rep: {
       type: DataTypes.INTEGER(1),
       allowNull: false,
       defaultValue: '1'
+    },
+    serie: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    last_customers_update: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'companies',

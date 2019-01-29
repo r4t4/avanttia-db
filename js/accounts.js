@@ -72,6 +72,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false
     },
+    map_config: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
     disable: {
       type: DataTypes.INTEGER(1),
       allowNull: false

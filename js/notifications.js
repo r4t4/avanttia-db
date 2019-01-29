@@ -66,6 +66,14 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
+    company_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'companies',
+        key: 'id'
+      }
+    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,

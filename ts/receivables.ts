@@ -73,8 +73,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: true
     },
     certificate: {
-      type: DataTypes.STRING(255),
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     sub_total: {
       type: "DOUBLE",
@@ -93,8 +93,8 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false
     },
     seal: {
-      type: DataTypes.STRING(255),
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     folio: {
       type: DataTypes.STRING(50),
@@ -128,6 +128,15 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(1),
       allowNull: false
     },
+    is_sales_note: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    interest_percent: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
     deleted_at: {
       type: DataTypes.DATE,
       allowNull: true
@@ -153,6 +162,11 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     concept_key_contpaqi: {
       type: DataTypes.STRING(80),
       allowNull: false
+    },
+    force_sync: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
     tableName: 'receivables',

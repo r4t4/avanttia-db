@@ -1,6 +1,6 @@
 {
   "name": "avanttia-db",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Avanttia DB",
   "main": "index.js",
   "scripts": {

@@ -52,10 +52,22 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
+    contracts: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    contracts_updated: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
     import_source: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: '1'
+    },
+    force_sync: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true
     },
     created_at: {
       type: DataTypes.DATE,

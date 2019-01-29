@@ -28,6 +28,14 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         key: 'id'
       }
     },
+    company_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'companies',
+        key: 'id'
+      }
+    },
     contract: {
       type: DataTypes.STRING(255),
       allowNull: false

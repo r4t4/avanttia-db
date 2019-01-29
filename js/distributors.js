@@ -65,6 +65,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'distributor_levels',
         key: 'id'
       }
+    },
+    kam: {
+      type: DataTypes.STRING(255),
+      allowNull: false
     }
   }, {
     tableName: 'distributors',

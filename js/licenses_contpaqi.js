@@ -46,10 +46,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
     },
-    in_progress: {
-      type: DataTypes.INTEGER(4),
-      allowNull: false
-    },
     sync: {
       type: DataTypes.INTEGER(4),
       allowNull: false
@@ -57,6 +53,18 @@ module.exports = function(sequelize, DataTypes) {
     sync_enabled: {
       type: DataTypes.INTEGER(4),
       allowNull: false
+    },
+    in_progress: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false
+    },
+    force_sync_init_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    force_sync_end_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
     }
   }, {
     tableName: 'licenses_contpaqi',

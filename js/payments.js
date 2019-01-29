@@ -236,6 +236,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: '0'
+    },
+    cancellation_reason: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    replacement_payment_id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
     }
   }, {
     tableName: 'payments',

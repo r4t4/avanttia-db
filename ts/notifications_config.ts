@@ -100,6 +100,11 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         model: 'users',
         key: 'id'
       }
+    },
+    is_lite: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
     tableName: 'notifications_config',
