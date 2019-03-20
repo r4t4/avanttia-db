@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('contracts', {
+  return sequelize.define('user_login_log', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
@@ -16,39 +16,11 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    customer_id: {
+    log_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
-        model: 'customers',
-        key: 'id'
-      }
-    },
-    contract_number: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    reference: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    amount: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    interest_moratorium: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    credit_days: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
-    },
-    company_id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: true,
-      references: {
-        model: 'companies',
+        model: 'logs',
         key: 'id'
       }
     },
@@ -61,13 +33,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
-    },
-    deleted_at: {
-      type: DataTypes.DATE,
-      allowNull: true
     }
   }, {
-    tableName: 'contracts',
+    tableName: 'user_login_log',
     timestamps: false,
     version: false
   });

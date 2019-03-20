@@ -1,56 +1,32 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('contracts', {
+  return sequelize.define('banners', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
-    customer_id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false,
-      references: {
-        model: 'customers',
-        key: 'id'
-      }
-    },
-    contract_number: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    reference: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    amount: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    interest_moratorium: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    credit_days: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
-    },
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'companies',
         key: 'id'
       }
+    },
+    link: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    file_name: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    position: {
+      type: DataTypes.STRING(255),
+      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
@@ -62,12 +38,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
     },
-    deleted_at: {
-      type: DataTypes.DATE,
-      allowNull: true
+    is_owner: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
-    tableName: 'contracts',
+    tableName: 'banners',
     timestamps: false,
     version: false
   });

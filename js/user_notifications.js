@@ -14,12 +14,20 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     },
     user_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id'
+      }
     },
     company_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'companies',
+        key: 'id'
+      }
     },
     type: {
       type: DataTypes.INTEGER(11),

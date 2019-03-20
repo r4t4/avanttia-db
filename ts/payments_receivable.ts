@@ -43,7 +43,7 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     previous_balance: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: '0.0000'
+      defaultValue: '0.00'
     },
     amount_without_convertion: {
       type: "DOUBLE",
@@ -56,7 +56,7 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
     balance: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: '0.0000'
+      defaultValue: '0.00'
     },
     currency: {
       type: DataTypes.STRING(255),

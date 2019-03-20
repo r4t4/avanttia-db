@@ -2,28 +2,15 @@
 // tslint:disable
 import * as sequelize from 'sequelize';
 import {DataTypes} from 'sequelize';
-import {user_notificationsInstance, user_notificationsAttribute} from './db';
+import {bannersInstance, bannersAttribute} from './db';
 
 module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) {
-  return sequelize.define<user_notificationsInstance, user_notificationsAttribute>('user_notifications', {
+  return sequelize.define<bannersInstance, bannersAttribute>('banners', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-    },
-    hide: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: '0'
-    },
-    user_id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
     },
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -33,16 +20,16 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         key: 'id'
       }
     },
-    type: {
-      type: DataTypes.INTEGER(11),
+    link: {
+      type: DataTypes.STRING(255),
       allowNull: false
     },
-    subtype: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
+    file_name: {
+      type: DataTypes.STRING(255),
+      allowNull: false
     },
-    data: {
-      type: DataTypes.TEXT,
+    position: {
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     created_at: {
@@ -55,12 +42,13 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
     },
-    import_data_service_log_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
+    is_owner: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
     }
   }, {
-    tableName: 'user_notifications',
+    tableName: 'banners',
     timestamps: false,
     version: false
   });

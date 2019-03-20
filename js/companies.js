@@ -254,12 +254,45 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: '1'
     },
+    is_automatic_send_rep: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    is_automatic_send_invoices: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
     serie: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
     last_customers_update: {
       type: DataTypes.DATE,
+      allowNull: true
+    },
+    is_total_play: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    is_santander: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    agreement: {
+      type: DataTypes.CHAR(100),
+      allowNull: false
+    },
+    santander_payment_is_active: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false,
+      defaultValue: '0'
+    },
+    steps_number: {
+      type: DataTypes.INTEGER(11),
       allowNull: true
     }
   }, {

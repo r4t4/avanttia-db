@@ -16,6 +16,14 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
+    contract_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'contracts',
+        key: 'id'
+      }
+    },
     certificate_number: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -163,6 +171,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(1),
       allowNull: false,
       defaultValue: '0'
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     tableName: 'receivables',

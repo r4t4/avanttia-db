@@ -2,20 +2,15 @@
 // tslint:disable
 import * as sequelize from 'sequelize';
 import {DataTypes} from 'sequelize';
-import {user_notificationsInstance, user_notificationsAttribute} from './db';
+import {user_login_logInstance, user_login_logAttribute} from './db';
 
 module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) {
-  return sequelize.define<user_notificationsInstance, user_notificationsAttribute>('user_notifications', {
+  return sequelize.define<user_login_logInstance, user_login_logAttribute>('user_login_log', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-    },
-    hide: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: '0'
     },
     user_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -25,25 +20,13 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         key: 'id'
       }
     },
-    company_id: {
+    log_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
-        model: 'companies',
+        model: 'logs',
         key: 'id'
       }
-    },
-    type: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
-    },
-    subtype: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    data: {
-      type: DataTypes.TEXT,
-      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
@@ -54,13 +37,9 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
-    },
-    import_data_service_log_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
     }
   }, {
-    tableName: 'user_notifications',
+    tableName: 'user_login_log',
     timestamps: false,
     version: false
   });

@@ -1,7 +1,11 @@
 /* jshint indent: 2 */
+// tslint:disable
+import * as sequelize from 'sequelize';
+import {DataTypes} from 'sequelize';
+import {user_system_logsInstance, user_system_logsAttribute} from './db';
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('contracts', {
+module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) {
+  return sequelize.define<user_system_logsInstance, user_system_logsAttribute>('user_system_logs', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
@@ -16,41 +20,17 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    customer_id: {
+    log_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
-        model: 'customers',
+        model: 'logs',
         key: 'id'
       }
     },
-    contract_number: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    reference: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    amount: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    interest_moratorium: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
-    },
-    credit_days: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
-    },
-    company_id: {
+    external_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: true,
-      references: {
-        model: 'companies',
-        key: 'id'
-      }
+      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
@@ -61,13 +41,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
-    },
-    deleted_at: {
-      type: DataTypes.DATE,
-      allowNull: true
     }
   }, {
-    tableName: 'contracts',
+    tableName: 'user_system_logs',
     timestamps: false,
     version: false
   });

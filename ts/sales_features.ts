@@ -2,28 +2,15 @@
 // tslint:disable
 import * as sequelize from 'sequelize';
 import {DataTypes} from 'sequelize';
-import {user_notificationsInstance, user_notificationsAttribute} from './db';
+import {sales_featuresInstance, sales_featuresAttribute} from './db';
 
 module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) {
-  return sequelize.define<user_notificationsInstance, user_notificationsAttribute>('user_notifications', {
+  return sequelize.define<sales_featuresInstance, sales_featuresAttribute>('sales_features', {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-    },
-    hide: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: '0'
-    },
-    user_id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
     },
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -33,16 +20,21 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         key: 'id'
       }
     },
-    type: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
+    feature_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'features',
+        key: 'id'
+      }
     },
-    subtype: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
+    active: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false,
+      defaultValue: '0'
     },
-    data: {
-      type: DataTypes.TEXT,
+    expiration_date: {
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     created_at: {
@@ -54,13 +46,9 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: '0000-00-00 00:00:00'
-    },
-    import_data_service_log_id: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
     }
   }, {
-    tableName: 'user_notifications',
+    tableName: 'sales_features',
     timestamps: false,
     version: false
   });

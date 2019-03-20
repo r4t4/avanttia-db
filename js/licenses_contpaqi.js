@@ -65,6 +65,10 @@ module.exports = function(sequelize, DataTypes) {
     force_sync_end_date: {
       type: DataTypes.DATEONLY,
       allowNull: true
+    },
+    last_sync_date: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'licenses_contpaqi',

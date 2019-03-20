@@ -28,6 +28,26 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         key: 'id'
       }
     },
+    contract_number: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    reference: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    interest_moratorium: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    credit_days: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
+    },
     company_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
@@ -35,14 +55,6 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
         model: 'companies',
         key: 'id'
       }
-    },
-    contract: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    comment: {
-      type: DataTypes.STRING(255),
-      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
