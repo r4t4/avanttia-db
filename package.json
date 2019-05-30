@@ -1,5 +1,5 @@
 {
-  "name": "@avanttia/db-schema",
+  "name": "avanttia-db",
   "version": "1.2.0",
   "description": "Avanttia DB",
   "main": "index.js",
