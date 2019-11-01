@@ -16,6 +16,6 @@
   "author": "Claudio Maubert <claudio@avanttia.com>",
   "license": "ISC",
   "devDependencies": {
-    "sequelize": "4.38.0"
+    "sequelize": "5.15.1"
   }
 }
